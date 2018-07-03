@@ -1,0 +1,120 @@
+.sidebar {
+  height: 100%;
+  min-height: 100%;
+  position: fixed;
+  background: $primary-color;
+  overflow: auto;
+  -ms-overflow-style: scrollbar;
+  min-width: 237px;
+  width: 237px;
+  z-index: 50;
+  left:0;
+  top:0;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+
+  &--close {
+    left:-237px;
+  }
+
+  &__logo img {
+    width: 100%;
+    height: auto;
+    max-width: 160px;
+    margin: 0 auto;
+    padding-top: 50px;
+  }
+  .dropdown-menu {
+    min-width: 160px;
+  }
+
+  &__cl-select-block {
+    padding: 14px 0 0 0;
+    width: 160px;
+    margin: 0 auto;
+    select {
+      width: 160px;
+      margin: 0 auto;
+      display: block;
+      option {
+        max-width: 160px;
+        width: 160px;
+        padding-top:20px;
+      }
+    }
+  }
+
+  &__nav {
+    padding: 20px 10px 0 10px;
+    ul {
+      margin-left: 0;
+      padding-left: 0;
+      li {
+        list-style-type: none;
+        display: block;
+        height: 40px;
+        padding-left: 27px;
+        line-height: 40px;
+        span {
+          color: $secondary2-color;
+          //font-family: OpenSans;
+          font-size: 16px;
+          vertical-align: middle;
+          display: inline-block;
+          cursor: pointer;
+          &:hover {
+            color: $highlight-color2;
+          }
+        }
+        &.nav--active {
+          background: $highlight-color2;
+          span {
+            color: $highlight-font-color;
+          }
+        }
+      }
+    }
+  }
+  &__logout {
+    padding-left: 24px;
+    padding-top: 12px;
+    padding-bottom: 15px;
+  }
+  &__logout-btn {
+    height: 36px;
+    background-color: $highlight-color;
+    font-size: 16px;
+    font-style: normal;
+    font-stretch: normal;
+    font-weight: 400;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    text-align: left;
+    color: $highlight-font-color;
+    text-transform: uppercase;
+    padding: 0 14px;
+    display: inline-block;
+    line-height: 36px;
+    &:hover {
+      background-color: $highlight-color--dark;
+    }
+  }
+
+  &__link {
+    p {
+      padding:0 2px 0 25px;
+      margin: 0;
+      color: $secondary2-color;
+      &:hover {
+        color: $highlight-color2;
+      }
+    }
+  }
+}
+
+
+

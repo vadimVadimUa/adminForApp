@@ -1,0 +1,57 @@
+<nav class="sidebar__nav">
+    <ul>
+        <li ng-class="{'nav--active': vm.activeNavName === 'app.tm-dashboard'}">
+            <span ng-click="vm.goToHome()">Main Dashboard</span>
+        </li>
+
+        <li ng-if="($root.user.settings && $root.user.settings.show_survey)"
+            ng-class="{'nav--active': (vm.activeNavName === 'app.mobile-app-survey')
+                                    || (vm.activeNavName === 'app.survey-management')}">
+            <span ui-sref="app.survey-management">Surveys </span>
+            <!--<span ng-click="vm.goToSurvey()">Surveys </span>-->
+        </li>
+
+        <!--<li ng-class="{'nav&#45;&#45;active': vm.activeNavName === 'app.my-mood'}"-->
+            <!--ng-if="$root.user.settings.show_mood === 1 || $root.user.settings.show_mood === 0">-->
+            <!--<span ui-sref="app.my-mood">How I'm Feeling</span>-->
+        <!--</li>-->
+
+        <li ng-if="$root.user.settings.show_mood === 0"
+            ng-class="{'nav--active':vm.activeNavName === 'app.good-day'}">
+            <span ui-sref="app.good-day">Good Day Measure</span>
+        </li>
+
+        <!--<li ng-class="{'nav&#45;&#45;active': vm.activeNavName === 'app.my-ideas'}">-->
+            <!--<span ui-sref="app.my-ideas">My ideas </span>-->
+        <!--</li>-->
+
+        <!--<li ng-class="{'nav&#45;&#45;active': vm.activeNavName === 'app.message'}">-->
+            <!--<span ui-sref="app.message">Messages</span>-->
+        <!--</li>-->
+
+        <li ng-class="{'nav--active':vm.activeNavName === 'app.teams'}">
+            <span ui-sref="app.teams">Project Teams</span>
+        </li>
+
+        <li ng-class="{'nav--active':vm.activeNavName === 'app.mobile-app-notice'}">
+            <span ui-sref="app.mobile-app-notice">Notices</span>
+        </li>
+
+        <li ng-class="{'nav--active':vm.activeNavName === 'app.improvement-log'}">
+            <span ui-sref="app.improvement-log">Improvement log</span>
+        </li>
+
+        <li ng-class="{'nav--active':vm.activeNavName === 'app.user-management'}">
+            <span ui-sref="app.user-management">User management</span>
+        </li>
+
+        <li ng-class="{'nav--active':vm.activeNavName === 'app.mobile-app-edit'}">
+            <span ui-sref="app.mobile-app-edit">Profile </span>
+        </li>
+
+        <li ng-class="{'nav--active':vm.activeNavName === 'app.contact'}">
+            <span ui-sref="app.contact">Contact admin</span>
+        </li>
+
+    </ul>
+</nav>

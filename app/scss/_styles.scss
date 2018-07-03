@@ -1,0 +1,800 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*==========================================
+
+					Fonts
+
+=============================================*/
+
+@font-face {
+  font-family: 'ralewaybold';
+  src: url('../fonts/raleway-bold-webfont.eot');
+  src: url('../fonts/raleway-bold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/raleway-bold-webfont.woff2') format('woff2'), url('../fonts/raleway-bold-webfont.woff') format('woff'), url('../fonts/raleway-bold-webfont.ttf') format('truetype'), url('../fonts/raleway-bold-webfont.svg#ralewaybold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ralewayregular';
+  src: url('../fonts/raleway-regular-webfont.eot');
+  src: url('../fonts/raleway-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/raleway-regular-webfont.woff2') format('woff2'), url('../fonts/raleway-regular-webfont.woff') format('woff'), url('../fonts/raleway-regular-webfont.ttf') format('truetype'), url('../fonts/raleway-regular-webfont.svg#ralewayregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ralewaysemibold';
+  src: url('../fonts/raleway-semibold-webfont.eot');
+  src: url('../fonts/raleway-semibold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/raleway-semibold-webfont.woff2') format('woff2'), url('../fonts/raleway-semibold-webfont.woff') format('woff'), url('../fonts/raleway-semibold-webfont.ttf') format('truetype'), url('../fonts/raleway-semibold-webfont.svg#ralewaysemibold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*==========================================
+
+					Custom CSS
+
+=============================================*/
+
+body {
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden !important;
+  width: 100%;
+  position: fixed;
+}
+
+//[ui-view].ng-enter {
+//  transition: 0.3s ease-in-out;
+//  opacity: 0.5; }
+//[ui-view].ng-enter-active {
+//  opacity: 1; }
+//[ui-view].ng-leave {
+//  transition: 0.3s ease-in-out;
+//  opacity: 1; }
+//[ui-view].ng-leave-active {
+//  opacity: 0.5; }
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+optgroup {
+  max-height: 300px !important;
+}
+
+.no-margin-lr {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.no-padding-lr {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.no-margin-tb {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.no-padding-tb {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.inline-type {
+  display: inline-block;
+}
+
+.pull-left, .pull-right {
+  width: auto;
+}
+
+.glyphicon {
+  padding: 10px 0px;
+  font-size: 22px;
+  outline: none;
+}
+
+md-dialog.delete-popup {
+  width: 300px;
+  min-width: 300px;
+  &__text {
+    font-size: 16px;
+  }
+}
+
+body {
+  font-family: 'ralewayregular';
+  background-color: $primary-color;
+  font-size: 13px;
+  color: $font-color;
+}
+
+a, a:focus {
+  outline: none;
+  border: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #42bc9b;
+}
+
+.container {
+  width: 100% !important;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background: $primary-color;
+}
+
+#page {
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  background: $primary-color;
+  overflow: hidden;
+}
+
+#site-main-container {
+  //background: $secondary-color;
+  overflow: hidden;
+}
+
+div.main-content {
+  margin-left: 237px;
+  height: 100%;
+  position: fixed;
+  width: calc(100% - 237px);
+  overflow: hidden;
+  background-color: $secondary-color;
+}
+
+.menu-open-close-btn {
+  background-color: $primary-color;
+  border: none;
+  color: $secondary2-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 51;
+}
+
+@media only screen and (max-width: 1024px) {
+  div.main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+  background-color: rgb(255, 255, 255) !important;
+  background-image: none;
+  color: rgb(0, 0, 0);
+}
+
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+/*==========================================
+
+					log in page and forgot-password page
+
+=============================================*/
+
+.login-body {
+  background-color: #f6f8f9;
+  margin-top: 110px;
+  //padding: 0 20px;
+}
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+.logo-section {
+  width: 100%;
+  margin: 40px 0;
+}
+
+.form-custom {
+  border-radius: 0;
+  height: 60px;
+  font-size: 16px;
+  border-color: #e5e5e5;
+  box-shadow: none;
+}
+
+.form-custom-2 {
+  border-radius: 0;
+  height: 60px;
+  font-size: 16px;
+  border-color: #e5e5e5;
+  box-shadow: none;
+}
+
+.login-btn {
+  border-radius: 0;
+  background-color: $button-color;
+  color: #fff;
+  font-family: 'ralewaybold';
+  font-size: 18px;
+  margin-top: 20px;
+  padding: 15px 0;
+}
+
+.login-btn:hover {
+  color: $font-second-color;
+  background-color: $button-color_hover;
+}
+
+.login-footer {
+  background-color: #fff;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.pass-contact {
+  text-align: center;
+  margin: 25px 0 40px;
+}
+
+.pass-contact a {
+  font-family: 'ralewayregular';
+  font-size: 12px;
+  color: #39414f;
+  margin: 0 20px;
+  text-decoration: none;
+}
+
+.pass-contact a:hover {
+  color: #2bb673;
+}
+
+md-dialog {
+  z-index: 99;
+  background-color: #f6f8f9;
+  max-height: 95%;
+  max-width: 95%;
+  min-width: 90%;
+}
+
+//bem classes for blocks
+.dashboard-block {
+  &__title {
+    font-size: 32px;
+    min-height: 38px;
+    padding-left: $default-left-indentation;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  &__empty {
+    height: 32px;
+  }
+
+  &__add {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24);
+    display: inline-block;
+    padding: 0 28px;
+    line-height: 36px;
+    margin-left: 20px;
+    vertical-align: middle;
+    //background: $blue-color;
+    font-size: 16px;
+    //color: $font-second-color;
+    &:hover {
+      //background-color: $blue-color--highlight;
+    }
+  }
+  &__search {
+    padding-top: 25px;
+    padding-bottom: 5px;
+    input[type=text] {
+      padding-left: 35px;
+    }
+  }
+
+  &__content {
+  }
+
+}
+
+//for list using in dashboard elements
+
+.dashboard-list {
+  margin: 0;
+  padding: 0;
+  &__item {
+    list-style-type: none;
+    display: block;
+    color: $primary-color;
+    background: $list-item-color;
+    border-bottom: 1px solid $list-item-color;
+    font-size: 14px;
+    min-height: 64px;
+    padding-left: 35px;
+    padding-right: 10px;
+    margin-bottom: 2px;
+    line-height: 64px;
+    width: 100%;
+    &--empty {
+      text-transform: uppercase;
+      color: grey;
+      text-align: center;
+      background-color: $secondary-color;
+      border: none;
+    }
+    &.even {
+      background-color: #f6f8f9;
+    }
+    &.odd {
+      background-color: white;
+      margin-bottom: 0;
+      font-weight: bold;
+    }
+  }
+
+  &__action-elmn {
+    line-height: 64px;
+    float: right;
+    padding: 0;
+    display: inline-block;
+    margin-right: 25px;
+    .glyphicon {
+      font-size: 18px;
+      padding: 0px;
+    }
+  }
+
+  &__remove-btn {
+    color: $highlight-font-color;
+    text-transform: uppercase;
+    display: block;
+    float: right;
+    width: 100px;
+    line-height: 64px;
+    text-align: right;
+    span {
+      background-color: $highlight-color;
+      padding: 7px 14px;
+      font-size: 16px;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24);
+      &:hover {
+        background-color: $highlight-color--dark;
+      }
+    }
+  }
+
+  &__name {
+    float: left;
+    line-height: 64px;
+    width: 140px;
+    padding-right: 20px;
+    display: inline-block;
+    white-space: nowrap;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    &--long {
+      white-space: nowrap;
+      -ms-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      vertical-align: middle;
+      overflow: hidden;
+      display: inline-block;
+      //width: calc(100% - 250px);
+    }
+  }
+  &__link {
+    padding-left: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    float: left;
+    white-space: nowrap;
+    width: calc(100% - 250px);
+    color: $blue-color;
+    &:hover {
+      color: $blue-color--highlight;
+    }
+  }
+
+  &__description {
+    width: calc(100% - 340px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    float: left;
+    white-space: nowrap;
+  }
+
+  &__info {
+    float: right;
+  }
+
+  &__date {
+    display: inline-block;
+    width: 90px;
+  }
+  &__time {
+    display: inline-block;
+    width: 60px;
+  }
+
+  &__attach {
+    display: inline-block;
+    width: 36px;
+    .glyphicon {
+      vertical-align: middle;
+      font-size: 18px;
+      padding: 0;
+    }
+  }
+}
+
+// for creating simple tabs
+#secondary-tabs {
+  border: 3px solid transparent;
+  & > li > span {
+    background-color: #fff;
+    margin: 2px 0 0 0;
+    color: $tab-font-color2;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.42857143;
+    border-bottom: 2px solid transparent;
+    position: relative;
+    display: block;
+    padding: 12px 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    &.active {
+      color: $secondary2-color;
+      font-family: 'ralewaysemibold';
+      background-color: #fff;
+      border-bottom: 2px solid $secondary2-color;
+      cursor: default;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.input-search-icon {
+  /* enable absolute positioning */
+  &__inner-addon {
+    position: relative;
+    & > .glyphicon {
+      position: absolute;
+      padding: 10px;
+      font-size: 16px;
+      pointer-events: none;
+      color: #CCC;
+    }
+    &--left {
+      input {
+        padding-left: 30px;
+      }
+      & > .glyphicon {
+        left: 0;
+      }
+      &--right {
+        input {
+          padding-right: 30px;
+        }
+        & > .glyphicon {
+          right: 0;
+        }
+      }
+    }
+  }
+}
+
+//for list with separate lineys, headers, search inputs etc
+
+.data-list {
+  font-size: 16px;
+  color: $primary-font-color;
+
+  &__input-100 {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  &__container {
+    background: $secondary-color;
+  }
+
+  &__header {
+
+  }
+
+  &__header--empty {
+    height: 56px;
+  }
+
+  &__header-item {
+    line-height: 36px;
+    padding: 10px 0;
+    & > h3 {
+      font-size: 30px;
+      margin: 0;
+      padding: 0;
+      line-height: 36px;
+    }
+  }
+
+  &__container-item {
+    margin: 0;
+    padding: 0;
+  }
+  &__item {
+    list-style: none;
+    font-size: 14px;
+    line-height: 60px;
+    min-height: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-bottom: 1px solid $border-color;
+    padding-left: $default-left-indentation;
+    &:first-of-type {
+      border-top: 1px solid $border-color;
+    }
+    .glyphicon {
+      font-size: 18px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 10px;
+      margin-right: 10px;
+      padding: 0;
+      &.delete-icon {
+        color: #fff;
+        font-size: 14px;
+        padding: 3px;
+        border-radius: 50%;
+        background: $highlight-color;
+        outline: none;
+      }
+    }
+  }
+  &__item--active {
+    background: $active-color;
+  }
+  &__item--empty {
+    text-align: center;
+  }
+  &__control {
+    display: block;
+    float: right;
+  }
+  &__control-item {
+    &--radio[type=radio] {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+      display: inline-block;
+      margin: 0 10px 0 0;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+    }
+  }
+
+}
+
+.default-button {
+  height: 36px;
+  text-transform: uppercase;
+  font-size: 16px;
+  background-color: $blue-color;
+  color: $font-second-color;
+  line-height: 36px;
+  padding: 0 20px 0 20px;
+  vertical-align: middle;
+  display: inline-block;
+  border: none !important;
+  border-radius: 3px;
+  outline: none;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.12);
+  &:hover {
+    background-color: $blue-color--highlight;
+  }
+}
+
+.icon-color1 {
+  color: $dark-icon-color;
+}
+
+.glyphicon.icon-add {
+  background-color: $dark-icon-color;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 14px;
+  outline: none;
+  padding: 3px;
+  display: inline-block;
+}
+
+.glyphicon.icon-remove {
+  background-color: $highlight-color;
+  color: #fff;
+  font-size: 14px;
+  padding: 3px;
+  border-radius: 50%;
+  background: $highlight-color;
+  outline: none;
+  display: inline-block;
+}
+
+.popup-box {
+  padding: 20px;
+  background-color: $popup-background;
+  max-height: 100%;
+  overflow: auto;
+
+  &__container {
+  }
+
+  &__header {
+    //text-transform: capitalize;
+    min-height: 30px;
+  }
+
+  &__header-close {
+    float: right;
+    display: inline-block;
+    width: 22px;
+    line-height: 30px;
+    .glyphicon {
+      font-size: 18px;
+      color: $popup-second-color;
+      margin: 0;
+      padding: 0;
+      vertical-align: middle;
+    }
+  }
+
+  &__header-title {
+    display: inline-block;
+    width: calc(100% - 30px);
+    font-size: 20px;
+  }
+
+  &__divider {
+    height: 1px;
+    width: 100%;
+    background-color: #dbdbdb;
+  }
+
+  &__content {
+    padding-top: 15px;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        list-style: none;
+        font-size: 16px;
+        padding-bottom: 10px;
+      }
+    }
+  }
+
+  &__control {
+    padding-top: 10px;
+    button {
+      margin-left: 10px;
+    }
+  }
+}
+
+.glyphicon-menu-hamburger {
+  cursor: pointer;
+}
+
+// custom selects styles
+.ui-select-choices-row-inner {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ui-select-bootstrap .ui-select-choices-row.active > span {
+  background-color: #41bb9b;
+}
+
+.caret {
+  color: $secondary2-color;
+}
+
+.ui-select-bootstrap .ui-select-choices-row > span {
+  padding: 3px 10px;
+}
+
+// inf button directive
+.infBtnDerective {
+  display: inline-block;
+  float: right;
+  i {
+    padding: 7px 50px;
+    font-size: 22px !important;
+  }
+}
+
+.infBtnDerective-second {
+  display: inline-block;
+  i {
+    padding: 7px 10px !important;
+    font-size: 22px !important;
+  }
+}
+
+.main-custom-tab {
+  background: rgba(0, 0, 0, 0);
+  &:before, &:after {
+    background: #41bc9b;
+    width: 32px;
+    height: 42px;
+    border-color: #3ea48c;
+    text-align: center;
+    line-height: 42px;
+    color: #fff;
+  }
+  .nav-tabs {
+    border: none;
+  }
+  .nav > li > a:focus, .nav > li > a:hover {
+    background: rgba(0,0,0,0);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 3px rgba(0,0,0,0) solid;
+  }
+  .nav-tabs > li > a {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 3px rgba(0,0,0,0) solid;
+  }
+  li {
+    border: none;
+    outline: none;
+    &.active {
+      border: none;
+      a,a:focus,a:hover {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        background-color: rgba(0, 0, 0, 0) !important;
+        border-bottom: 2px #41bb9b solid;
+        color: #41bb9b;
+        font-weight:bold;
+      }
+    }
+    & > a {
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      text-transform: capitalize;
+      font-size:16px;
+      transition: all 0.2s ease;
+      padding: 10px 15px;
+      color:#a9bbb7;
+      border-bottom: 2px rgba(0,0,0,0) solid;
+    }
+  }
+}

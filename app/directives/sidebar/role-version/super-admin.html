@@ -1,0 +1,50 @@
+<nav class="sidebar__nav">
+    <ul>
+        <li ng-class="{'nav--active': vm.activeNavName === 'app.dashboard.admin-dashboard'}">
+            <span ng-click="vm.goToHome()">Main Dashboard</span>
+        </li>
+
+        <li ng-class="{'nav--active': vm.activeNavName === 'app.clients-management'}">
+            <span ui-sref="app.clients-management">Clients</span>
+        </li>
+
+        <li ng-class="{'nav--active':vm.activeNavName === 'app.notice'}">
+            <span ui-sref="app.notice">Notices</span>
+        </li>
+
+        <li ng-class="{'nav--active':vm.activeNavName === 'app.notifications'}">
+            <span ui-sref="app.notifications">Notification</span>
+        </li>
+
+        <li ng-class="{'nav--active':vm.activeNavName === 'app.observer'}">
+            <span ui-sref="app.observer">Observers</span>
+        </li>
+
+        <li ng-class="{'nav--active':vm.activeNavName === 'app.survey-management'}"
+            ng-if="vm.showSurvey">
+            <span ui-sref="app.survey-management">Surveys</span>
+        </li>
+
+        <li ng-if="vm.showMoodQuest"
+            ng-class="{'nav--active':vm.activeNavName === 'app.good-day'}">
+            <span ui-sref="app.good-day">Good Day Measure</span>
+        </li>
+
+        <li ng-class="{'nav--active':vm.activeNavName === 'app.teams'}">
+            <span ui-sref="app.teams">Project Teams</span>
+        </li>
+
+        <li ng-class="{'nav--active':vm.activeNavName === 'app.improvement-log'}">
+            <span ui-sref="app.improvement-log">Improvement log</span>
+        </li>
+
+        <li ng-class="{'nav--active':vm.activeNavName === 'app.user-management'}">
+            <span ui-sref="app.user-management">User management</span>
+        </li>
+
+        <li ng-if="vm.role.isSA()"
+            ng-class="{'nav--active': vm.activeNavName === 'app.privacy-policy'}">
+            <span ui-sref="app.privacy-policy">Privacy policy</span>
+        </li>
+    </ul>
+</nav>
