@@ -2,14 +2,14 @@ importScripts('https://www.gstatic.com/firebasejs/4.6.1/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/4.6.1/firebase-messaging.js');
 
 // uk
-firebase.initializeApp({
-    apiKey: "AIzaSyAoQSziGTmVrS7M9t9B8y1gDH1uIaI7CDo",
-    authDomain: "elft-4dc55.firebaseapp.com",
-    databaseURL: "https://elft-4dc55.firebaseio.com",
-    projectId: "elft-4dc55",
-    storageBucket: "elft-4dc55.appspot.com",
-    messagingSenderId: "33713645199"
-});
+// firebase.initializeApp({
+//     apiKey: "AIzaSyAoQSziGTmVrS7M9t9B8y1gDH1uIaI7CDo",
+//     authDomain: "elft-4dc55.firebaseapp.com",
+//     databaseURL: "https://elft-4dc55.firebaseio.com",
+//     projectId: "elft-4dc55",
+//     storageBucket: "elft-4dc55.appspot.com",
+//     messagingSenderId: "33713645199"
+// });
 
 //com
 // firebase.initializeApp({

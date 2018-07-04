@@ -1,15 +1,11 @@
 
 var gulp = require('gulp');
-var common = require('./common.js');
 var pkg = require('./package.json');
 var plug = require('gulp-load-plugins')();
 var cleanCss = require('gulp-clean-css');
 var browserSync = require('browser-sync').create();
-var env = plug.util.env;
-var log = plug.util.log;
+var log = require('fancy-log');
 var del = require('del');
-var cucumber = require('gulp-cucumber');
-// var time = (new Date()).getTime();
 
 /**
  * @desc Create $templateCache from the html templates
@@ -66,7 +62,6 @@ gulp.task('css', ['sass'], function () {
         .pipe(plug.concat('all.min.css'))
         .pipe(plug.autoprefixer('last 2 version', '> 5%'))
         .pipe(cleanCss({}))
-        // .pipe(plug.minifyCss({}))
         .pipe(gulp.dest(pkg.paths.build + 'content/css'));
 });
 
@@ -88,7 +83,7 @@ var reload = browserSync.reload;
 gulp.task('connect', ['watch'], function () {
     browserSync.init({
         notify: false,
-        port: 1338,
+        port: 1340,
         server: {
             baseDir: [
                 './app'
@@ -161,42 +156,16 @@ gulp.task('images', function () {
 });
 
 /**
- * Execute JSHint on given source files
- * @param  {Array} sources
- * @param  {string} jshintrc - file
- * @return {Stream}
- */
-function analyzejshint(sources, jshintrc) {
-    return gulp
-        .src(sources)
-        .pipe(plug.jshint(jshintrc))
-        .pipe(plug.jshint.reporter('jshint-stylish'));
-}
-
-/**
- * Execute JSCS on given source files
- * @param  {Array} sources
- * @return {Stream}
- */
-function analyzejscs(sources) {
-    return gulp
-        .src(sources)
-        .pipe(plug.jscs('./.jscsrc'));
-}
-
-/**
  * Inject all the files into the new index.html
  * rev, but no map
  * @return {Stream}
  */
 gulp.task('rev-and-inject', ['js', 'vendorjs', 'css', 'vendorcss', 'fonts', 'img'], function () {
     log('Rev\'ing files and building index.html');
-
     var minified = pkg.paths.build + '**/*.min.*';
     var index = pkg.paths.app + 'index.html';
     var minFilter = plug.filter(['**/*.min.*', '!**/*.map']);
     var indexFilter = plug.filter(['index.html']);
-
     return gulp
         .src([].concat(minified, index)) // add all staged min files and index.html
         .pipe(minFilter) // filter the stream to minified css and js
@@ -257,16 +226,8 @@ gulp.task('stage', ['build'], function () {
  * @return {Stream}
  */
 gulp.task('clean', function () {
-    log('Cleaning: ' + plug.util.colors.blue(pkg.paths.build));
+    log('Cleaning: ' + pkg.paths.build);
     del.sync(pkg.paths.build,{force:true});
-});
-
-
-gulp.task('cucumber', function() {
-    return gulp.src('node node_modules/cucumber/bin/cucumber.js/').pipe(cucumber({
-        'steps': 'tests/cucumber/steps/*.js',
-        'support': 'tests/data/support/*.js'
-    }));
 });
 
 gulp.task('default', ['sass', 'connect']);

@@ -1,10 +1,10 @@
 ;(function () {
     angular
         .module('app')
-        .controller('AppCtrl', AppCtrl);
+        .controller('DentistsCtrl', DentistsCtrl);
 
     /* @ngInject */
-    function AppCtrl() {
+    function DentistsCtrl() {
         var vm = this;
     }
 })();

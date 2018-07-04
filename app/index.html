@@ -11,90 +11,50 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>ImproveWell</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Admin For App</title>
+    <meta name="description" content="Admin for app">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <link rel="shortcut icon" href="./content/images/cropped-dot-32x32.png" type="image/x-icon">
-    <link rel="icon" href="./content/images/cropped-dot-32x32.png" type="image/x-icon">
+    <!--<link rel="shortcut icon" href="./content/images/cropped-dot-32x32.png" type="image/x-icon">-->
+    <!--<link rel="icon" href="./content/images/cropped-dot-32x32.png" type="image/x-icon">-->
 
     <!-- inject-vendor:css -->
-
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" media='all'/>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css"/>
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
-
-    <link rel='stylesheet' href='bower_components/textAngular/dist/textAngular.css'>
-
-    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css"/>
-
-    <link rel="stylesheet" href="bower_components/ng-img-crop/compile/unminified/ng-img-crop.css" />
-    <link rel="stylesheet" href="bower_components/highcharts-ng/dist/highcharts-ng.css"/>
-    <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css"/>
-
+    <link rel="stylesheet" href="bower_components/font-awesome/web-fonts-with-css/css/fontawesome-all.min.css" />
     <!-- endinject -->
 
     <!-- inject:css -->
     <link rel="stylesheet" href="content/css/app.css"/>
     <!-- endinject -->
 
-    <link rel="manifest" href="/manifest.json">
+    <!--<link rel="manifest" href="/manifest.json">-->
 </head>
+
 <body>
+<!--<div ui-view></div>-->
 
-<div ng-include="'layout/shell/shell.html'" id="site-main-container"
-     style="overflow-x:hidden; height: 100%;">
+<div ng-include="'layout/shell/shell.html'"
+     style="height: 100%; min-height: 100%; max-width: 100%;">
 </div>
-
 
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-shim.min.js"></script>-->
 
-<script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
-<!--<script src="https://www.gstatic.com/firebasejs/4.6.1/firebase-app.js"></script>-->
-<!--<script src="https://www.gstatic.com/firebasejs/4.6.1/firebase-messaging.js"></script>-->
-
 <!-- inject-vendor:js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
 <script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
-<script src="bower_components/angular-aria/angular-aria.js"></script>
-<script src="bower_components/angular-messages/angular-messages.js"></script>
-<script src="bower_components/angular-material/angular-material.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="bower_components/ngstorage/ngStorage.js"></script>
+<script src="bower_components/angular-toastr/dist/angular-toastr.js"></script>
 <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
-
-
-<script src="bower_components/highcharts/highstock.src.js"></script>
-<script src="bower_components/highcharts/highcharts-more.js"></script>
-<script src="bower_components/highcharts-ng/dist/highcharts-ng.js"></script>
-<script src="bower_components/highcharts/modules/solid-gauge.js"></script>
-<script src="bower_components/highcharts/modules/boost.js"></script>
-<script src="bower_components/highcharts/modules/exporting.js"></script>
-<script src="bower_components/highcharts/modules/wordcloud.src.js"></script>
-<script src="bower_components/highcharts/modules/offline-exporting.js"></script>
-<script src="bower_components/highcharts/modules/series-label.src.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-
-<script src='bower_components/textAngular/dist/textAngular-rangy.min.js'></script>
-<script src='bower_components/textAngular/dist/textAngular-sanitize.min.js'></script>
-<script src='bower_components/textAngular/dist/textAngular.min.js'></script>
-
-<script src="bower_components/ng-img-crop/compile/unminified/ng-img-crop.js"></script>
-<script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
-
-<script src="bower_components/angular-ui-select/dist/select.js"></script>
-<script src="bower_components/angular-resource/angular-resource.js"></script>
-
 <!-- endinject -->
 
 <!-- inject:js -->
 <!-- Core modules -->
-
 <script src="app.js"></script>
 <script src="core/core.config.modules.js"></script>
 <script src="core/core.config.route.js"></script>
@@ -102,168 +62,31 @@
 <script src="core/request.js"></script>
 <script src="core/url.js"></script>
 <script src="core/blocks/services/services.module.js"></script>
-<script src="core/blocks/request/request.module.js"></script>
+<script src="core/blocks/factory/factory.module.js"></script>
 <script src="core/blocks/directives/directives.module.js"></script>
 <script src="core/blocks/filters/filters.module.js"></script>
-
 <!--Factory-->
 
-<script src="factories/data.convert.js"></script>
-
 <!-- Services -->
-
-<script src="services/site.service.js"></script>
-<script src="services/improvement.service.js"></script>
-<script src="services/staticData.service.js"></script>
-<script src="services/client.service.js"></script>
-<script src="services/user.service.js"></script>
-<script src="services/type.service.js"></script>
-<script src="services/underway.service.js"></script>
-<script src="services/theme.service.js"></script>
-<script src="services/domain.service.js"></script>
-<script src="services/speciality.service.js"></script>
-<script src="services/grade.service.js"></script>
-<script src="services/teams.service.js"></script>
-<script src="services/messagesNotice.service.js"></script>
-<script src="services/clientData.service.js"></script>
-<script src="services/questionnaires.service.js"></script>
-<script src="services/observe.service.js"></script>
-<script src="services/directorates.service.js"></script>
-<script src="services/utils.service.js"></script>
-<script src="services/firebase.service.js"></script>
-<script src="services/notification.service.js"></script>
-<script src="services/message.service.js"></script>
-<script src="services/mood.service.js"></script>
-<script src="services/moodDate.service.js"></script>
-<script src="services/notice.service.js"></script>
-<script src="services/chart.service.js"></script>
-<script src="services/usersLog.service.js"></script>
-<script src="services/popUpMessage.service.js"></script>
-<script src="services/privacy.service.js"></script>
-<script src="services/toolTipTitle.service.js"></script>
-<script src="services/information.service.js"></script>
-<script src="services/teamsLogic.service.js"></script>
-<script src="services/calendar.service.js"></script>
-<script src="services/chartExt.service.js"></script>
-<script src="services/improvementLogic.service.js"></script>
-<script src="services/surveyFolders.service.js"></script>
-<script src="services/surveyManagement.service.js"></script>
-<!--<script src="services/interceptors.service.js"></script>-->
+<script src="services/utils.srv.js"></script>
 
 <!-- Filters -->
-
-<script src="filters/trustUrl/trustUrl.filter.js"></script>
 <script src="filters/tooltips/tooltips.filter.js"></script>
-<script src="filters/addTargetBlank/addTargetBlank.filter.js"></script>
-<script src="filters/selectSearch/selectSearch.filter.js"></script>
-
 <!-- Modals Controllers -->
-<script src="components/modals/create-idea/create-idea.controller.js"></script>
 <!-- Controllers -->
-
-<script src="templates/auth/login/login.controller.js"></script>
-<script src="templates/auth/forgot-password/forgot-password.controller.js"></script>
-<script src="templates/auth/reset-password/reset-password.controller.js"></script>
-<script src="templates/auth/signup/signup.controller.js"></script>
-<script src="templates/contact-us/contact-us.controller.js"></script>
-<script src="templates/app/app.controller.js"></script>
-<script src="templates/message/feedback-text.controller.js"></script>
-<script src="templates/user-management/user-management.controller.js"></script>
-<script src="templates/user-management/edit-user/edit-user.controller.js"></script>
-<script src="templates/improvement-log/improvement-log.controller.js"></script>
-<script src="templates/contact/contact.controller.js"></script>
-<script src="templates/dashboard/dashboard.controller.js"></script>
-<script src="templates/dashboard/admin-dashboard/admin-dashboard.controller.js"></script>
-<script src="templates/dashboard/admin-client/admin-create-client/admin-create-client.controller.js"></script>
-<script src="templates/admin/admin-create-account/admin-create-account.controller.js"></script>
-<script src="templates/upload-to-improvewell/upload-to-improvewell.controller.js"></script>
-<script src="templates/dashboard/admin-client/admin-edit-client/admin-edit-client.controller.js"></script>
-<script src="templates/add-item-in-tab/add-item-in-tab.controller.js"></script>
-<script src="templates/edit-item-in-tab/edit-item-in-tab.controller.js"></script>
-<script src="templates/delete-item-in-tab/delete-item-in-tab.controller.js"></script>
-<script src="templates/mobile/mobile-app.controller.js"></script>
-<script src="templates/mobile/share/share.controller.js"></script>
-<script src="templates/mobile/idea/idea.controller.js"></script>
-<script src="templates/mobile/thanks/thanks.controller.js"></script>
-<script src="templates/mobile/improvements/improvements.controller.js"></script>
-<script src="templates/mobile/edit/edit.controller.js"></script>
-<script src="templates/mobile/my-ideas/my-ideas.controller.js"></script>
-<script src="templates/mobile/idea-details/idea-details.controller.js"></script>
-<script src="templates/mobile/messages/messages.controller.js"></script>
-<script src="templates/mobile/improvements-items/improvements-items.controller.js"></script>
-<script src="templates/mobile/dialog/dialog.controller.js"></script>
-<script src="templates/mobile/my-mood/my-mood.controller.js"></script>
-<script src="templates/mobile/survey/survey.controller.js"></script>
-<script src="templates/mobile/teams/teams.controller.js"></script>
-<script src="templates/manager/manager.controller.js"></script>
-<script src="templates/teams/teams.controller.js"></script>
-<script src="templates/clients-management/clients-management.controller.js"></script>
-<script src="templates/survey-management/survey-management.controller.js"></script>
-<script src="templates/survey-management/survey-add/survey-add.controller.js"></script>
-<script src="templates/dashboard/qi-dashboard/qi-dashboard.controller.js"></script>
-<script src="templates/dashboard/observer-dashboard/observer-dashboard.controller.js"></script>
-<script src="templates/observe/observe.controller.js"></script>
-<script src="templates/notifications/notifications.controller.js"></script>
-
-<script src="templates/notice/notice.controller.js"></script>
-<script src="templates/mobile/notice/notice.controller.js"></script>
-<script src="templates/dashboard/tm-dashboard/tm-dashboard.controller.js"></script>
-<script src="templates/privacy-policy/privacy-policy.controller.js"></script>
-<script src="templates/good-day/good-day.controller.js"></script>
-<script src="templates/information/inf.controller.js"></script>
-
+<script src="templates/app/app.ctrl.js"></script>
+<script src="templates/login/login.ctrl.js"></script>
+<script src="templates/dentists/dentists.ctrl.js"></script>
+<script src="templates/patients/patients.ctrl.js"></script>
 <!--Directives controllers-->
 
 <script src="directives/sidebar/sidebar.controller.js"></script>
-<script src="directives/dashboard/users-list/users-list.controller.js"></script>
-<script src="directives/dashboard/user-access/user-access.controller.js"></script>
-<script src="directives/dashboard/sites-list/sites-list.controller.js"></script>
-<script src="directives/dashboard/themes-list/themes-list.controller.js"></script>
-<script src="directives/dashboard/grades-list/grades-list.controller.js"></script>
-<script src="directives/dashboard/specialities-list/specialities-list.controller.js"></script>
-<script src="directives/dashboard/reports-list/reports-list.controller.js"></script>
-<script src="directives/dashboard/improvements-list/improvements-list.controller.js"></script>
-<script src="directives/dashboard/settings/settings.controller.js"></script>
-<script src="directives/dashboard/survey-view/survey-view.controller.js"></script>
-<script src="directives/dashboard/charts/charts.controller.js"></script>
-<script src="directives/dashboard/directorates-list/directorates-list.controller.js"></script>
-<script src="directives/dashboard/domain-list/domain-list.controller.js"></script>
-<script src="components/msg-item/msg-item.controller.js"></script>
-<script src="directives/dashboard/user-main/user-main.controller.js"></script>
-<script src="directives/inf-button/inf-btn.controller.js"></script>
-
-
 <!-- Directives -->
-<script src="components/msg-item/msg-item.directive.js"></script>
 <script src="directives/sidebar/sidebar.directive.js"></script>
 <script src="directives/sidebar/sidebar.controller.js"></script>
-<script src="directives/player/player.directive.js"></script>
-<script src="directives/inputFile/inputFile.directive.js"></script>
-<script src="directives/scrollable-tabs/scrollable-tabs.directive.js"></script>
-<script src="directives/dashboard/users-list/users-list.directive.js"></script>
-<script src="directives/dashboard/user-access/user-access.directive.js"></script>
-<script src="directives/dashboard/sites-list/sites-list.directive.js"></script>
-<script src="directives/dashboard/themes-list/themes-list.directive.js"></script>
-<script src="directives/dashboard/grades-list/grades-list.directive.js"></script>
-<script src="directives/dashboard/specialities-list/specialities-list.directive.js"></script>
-<script src="directives/dashboard/reports-list/reports-list.directive.js"></script>
-<script src="directives/dashboard/improvements-list/improvements-list.directive.js"></script>
-<script src="directives/dashboard/settings/settings.directive.js"></script>
-<script src="directives/dashboard/survey-view/survey-view.directive.js"></script>
-<script src="directives/dashboard/charts/charts.directive.js"></script>
-<script src="directives/dashboard/directorates-list/directorates-list.directive.js"></script>
-<script src="directives/dashboard/domain-list/domian-list.directive.js"></script>
-<script src="directives/http-src/http-src.directive.js"></script>
-<script src="directives/same-height/same-height.directive.js"></script>
-<script src="directives/menu-btn/menu-btn.directive.js"></script>
-<script src="directives/dashboard/user-main/user-main.directive.js"></script>
-<script src="directives/input-focus/input-focus.directive.js"></script>
-<script src="directives/inf-button/inf-btn.directive.js"></script>
-
 <!-- endinject -->
 
 <!-- inject-templates:js -->
 <!-- endinject -->
-
 </body>
 </html>
