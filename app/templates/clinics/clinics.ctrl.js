@@ -3,11 +3,9 @@
         .module('app')
         .controller('ClinicsCtrl', ClinicsCtrl);
 
-    ClinicsCtrl.$inject=['userSvc'];
+    ClinicsCtrl.$inject=[];
     /* @ngInject */
-    function ClinicsCtrl(userSvc) {
+    function ClinicsCtrl() {
         var vm = this;
-
-        var ss = userSvc.test();
     }
 })();

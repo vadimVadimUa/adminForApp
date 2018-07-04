@@ -5,7 +5,7 @@
         .factory('http', http);
 
     /* @ngInject */
-    function http($http, $q, $sessionStorage, toastr, $localStorage, $state, messagesNotice) {
+    function http($http, $q, $sessionStorage, toastr, $localStorage, $state) {
         var request = function (method, url, data, extras) {
             var config = {
                 dataType: 'json',

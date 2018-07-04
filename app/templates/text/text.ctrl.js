@@ -1,10 +1,12 @@
 ;(function () {
     angular
         .module('app')
-        .controller('DentistsCtrl', DentistsCtrl);
+        .controller('TextCtrl', TextCtrl);
 
+    TextCtrl.$inject=[];
     /* @ngInject */
-    function DentistsCtrl() {
+    function TextCtrl() {
         var vm = this;
+
     }
 })();
