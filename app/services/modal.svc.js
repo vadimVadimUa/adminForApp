@@ -14,7 +14,7 @@
             return  $uibModal.open({
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
-                templateUrl: '../components/confirm/confirm.html',
+                templateUrl: 'components/confirm/confirm.html',
                 controller: 'ConfirmCtrl',
                 controllerAs: 'vm',
                 windowTopClass: 'confirm-modal',
