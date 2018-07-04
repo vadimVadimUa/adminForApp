@@ -1,11 +1,11 @@
 ;(function () {
     angular
         .module('app')
-        .controller('DentistsCtrl', DentistsCtrl);
+        .controller('ClinicsCtrl', ClinicsCtrl);
 
-    DentistsCtrl.$inject=['userSvc'];
+    ClinicsCtrl.$inject=['userSvc'];
     /* @ngInject */
-    function DentistsCtrl(userSvc) {
+    function ClinicsCtrl(userSvc) {
         var vm = this;
 
         var ss = userSvc.test();

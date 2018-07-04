@@ -1,12 +1,12 @@
 ;(function () {
     'use strict';
 
-    angular
-        .module('data.utils', [])
-        .service('utils', utils);
+    angular.module('service.utilsSvc', []).service('utilsSvc', utilsSvc);
+
+    utilsSvc.$inject = [];
 
     /* @ngInject */
-    function utils(user) {
+    function utilsSvc(user) {
 
         // servise which work with client and send request on server
         var service = {

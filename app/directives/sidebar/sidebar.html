@@ -1,54 +1,54 @@
 <aside class="sidebar" ng-cloak="" id="sidebar-left">
     <div>
-        <div ng-click="vm.goToHome()" class="sidebar__logo">
-            <img ng-click="vm.goToHome()"
-                 src="content/images/logo.png"
-                 class="img-responsive" alt="logo"
-                 ng-if="!vm.currentLogo"/>
-            <img ng-click="vm.goToHome()"
-                 ng-src="{{vm.currentLogo}}"
-                 class="img-responsive" alt="logo"
-                 ng-if="vm.currentLogo"/>
-        </div>
+        <!--<div ng-click="vm.goToHome()" class="sidebar__logo">-->
+            <!--<img ng-click="vm.goToHome()"-->
+                 <!--src="content/images/logo.png"-->
+                 <!--class="img-responsive" alt="logo"-->
+                 <!--ng-if="!vm.currentLogo"/>-->
+            <!--<img ng-click="vm.goToHome()"-->
+                 <!--ng-src="{{vm.currentLogo}}"-->
+                 <!--class="img-responsive" alt="logo"-->
+                 <!--ng-if="vm.currentLogo"/>-->
+        <!--</div>-->
 
-        <div class="sidebar__cl-select-block"
-             ng-if="vm.role.isSA()">
-                <ui-select
-                        search-enabled="false"
-                       ng-disabled="!vm.showSelectUser"
-                       ng-model="vm.clients.selected"
-                       ng-change="vm.change(vm.clients.selected)">
-                    <ui-select-match
-                            placeholder="{{ vm.clients.all.length ? '' : 'Empty' }}">
-                        <span>{{vm.clients.selected.name || $select.selected.name}}</span>
-                    </ui-select-match>
-                    <ui-select-choices repeat="item in vm.clients.all">
-                        <span ng-bind="item.name"></span>
-                    </ui-select-choices>
-                </ui-select>
-            </div>
-        </div>
+        <!--<div class="sidebar__cl-select-block"-->
+             <!--ng-if="vm.role.isSA()">-->
+                <!--<ui-select-->
+                        <!--search-enabled="false"-->
+                       <!--ng-disabled="!vm.showSelectUser"-->
+                       <!--ng-model="vm.clients.selected"-->
+                       <!--ng-change="vm.change(vm.clients.selected)">-->
+                    <!--<ui-select-match-->
+                            <!--placeholder="{{ vm.clients.all.length ? '' : 'Empty' }}">-->
+                        <!--<span>{{vm.clients.selected.name || $select.selected.name}}</span>-->
+                    <!--</ui-select-match>-->
+                    <!--<ui-select-choices repeat="item in vm.clients.all">-->
+                        <!--<span ng-bind="item.name"></span>-->
+                    <!--</ui-select-choices>-->
+                <!--</ui-select>-->
+            <!--</div>-->
+        <!--</div>-->
 
-    <div ng-if="vm.role.isSA()"
-         ng-include="'directives/sidebar/role-version/super-admin.html'"></div>
-    <div ng-if="vm.role.isQA()"
-         ng-include="'directives/sidebar/role-version/client.html'"></div>
-    <div ng-if="vm.role.isTM()"
-         ng-include="'directives/sidebar/role-version/team-manager.html'"></div>
-    <div ng-if="vm.role.isUser()"
-         ng-include="'directives/sidebar/role-version/user.html'"></div>
-    <div ng-if="vm.role.isObs()"
-         ng-include="'directives/sidebar/role-version/observer.html'"></div>
+    <!--<div ng-if="vm.role.isSA()"-->
+         <!--ng-include="'directives/sidebar/role-version/super-admin.html'"></div>-->
+    <!--<div ng-if="vm.role.isQA()"-->
+         <!--ng-include="'directives/sidebar/role-version/client.html'"></div>-->
+    <!--<div ng-if="vm.role.isTM()"-->
+         <!--ng-include="'directives/sidebar/role-version/team-manager.html'"></div>-->
+    <!--<div ng-if="vm.role.isUser()"-->
+         <!--ng-include="'directives/sidebar/role-version/user.html'"></div>-->
+    <!--<div ng-if="vm.role.isObs()"-->
+         <!--ng-include="'directives/sidebar/role-version/observer.html'"></div>-->
 
-    <div class="sidebar__logout">
-        <div class="sidebar__logout-btn"
-             ng-click="vm.logout()">Logout</div>
-    </div>
-    <div class="sidebar__link"
-         ng-if="vm.role.isTM() || vm.role.isUser() || vm.role.isQA() || vm.role.isObs()">
-        <p ng-click="vm.showPrivacy()">Privacy Policy</p>
-        <p ng-click="vm.showTerms()">Terms and Conditions</p>
-        <p ng-click="vm.showDisclaimer()"
-           ng-if="vm.role.isTM() || vm.role.isUser() || vm.role.isObs() || vm.role.isQA()">Disclaimer</p>
-    </div>
+    <!--<div class="sidebar__logout">-->
+        <!--<div class="sidebar__logout-btn"-->
+             <!--ng-click="vm.logout()">Logout</div>-->
+    <!--</div>-->
+    <!--<div class="sidebar__link"-->
+         <!--ng-if="vm.role.isTM() || vm.role.isUser() || vm.role.isQA() || vm.role.isObs()">-->
+        <!--<p ng-click="vm.showPrivacy()">Privacy Policy</p>-->
+        <!--<p ng-click="vm.showTerms()">Terms and Conditions</p>-->
+        <!--<p ng-click="vm.showDisclaimer()"-->
+           <!--ng-if="vm.role.isTM() || vm.role.isUser() || vm.role.isObs() || vm.role.isQA()">Disclaimer</p>-->
+    <!--</div>-->
 </aside>

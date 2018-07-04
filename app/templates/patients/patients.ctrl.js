@@ -3,8 +3,12 @@
         .module('app')
         .controller('PatientsCtrl', PatientsCtrl);
 
+    PatientsCtrl.$inject=['authSvc'];
+
     /* @ngInject */
-    function PatientsCtrl() {
+    function PatientsCtrl(authSvc) {
         var vm = this;
+
+        var ss = authSvc.test();
     }
 })();
