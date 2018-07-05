@@ -1,53 +1,60 @@
 ;(function () {
-    'use strict';
+        'use strict';
 
-    angular.module('service.authSvc', []).service('authSvc', authSvc);
-
-
-    function authSvc($rootScope, url, http) {
-        var model = {
-            processAutoLogin: processAutoLogin,
-            isLogined: isLogined,
-            logout: logout,
-            login: login
-        };
-        return model;
-
-        function login(user) {
-            return http.post(url.admin.login, user)
-
-        $rootScope.$on('logout', function (event, data) {
-            logout();
-        });
-
-        return model;
+        angular.module('service.authSvc', []).service('authSvc', authSvc);
 
 
-        function processAutoLogin(callback) {
-            if (isLogined()) {
-                $state.go('app.dentists');
+        function authSvc($rootScope, url, http, userSvc, $state) {
+            var model = {
+                processAutoLogin: processAutoLogin,
+                isLogined: isLogined,
+                logout: logout,
+                login: login,
+                checkLogin: checkLogin
+            };
+
+            $rootScope.$on('logout', function (event, data) {
+                logout();
+            });
+
+            return model;
+
+            function login(user) {
+                return http.post(url.admin.login, user);
             }
-            return callback && callback();
-        }
 
-
-        function isLogined() {
-            let user = userSvc.getUser();
-            if (angular.isDefined(user) && user.id && userSvc.getToken()) {
-                return true;
+            function processAutoLogin(callback) {
+                if (isLogined()) {
+                    $state.go('app.dentists');
+                } else {
+                    $state.go('login');
+                }
+                return callback && callback();
             }
-            return false;
+
+            function checkLogin(){
+                if (!isLogined()) {
+                    $state.go('login');
+                }
+            }
+
+
+            function isLogined() {
+                if (userSvc.getToken()) {
+                    return true;
+                }
+                return false;
+            }
+
+            function logout() {
+                clearAuthData();
+                userSvc.resetData();
+                $state.go('login');
+            }
+
+            function clearAuthData() {
+            }
         }
-
-        function logout() {
-            clearAuthData();
-            userSvc.resetData();
-            $state.go('login');
-        }
-
-        function clearAuthData() {
-        }
-
-
     }
-})();
+
+)();
