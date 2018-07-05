@@ -19,7 +19,8 @@
                         about: baseUrl + 'static/about',
                         terms: baseUrl + 'static/terms',
                         text: baseUrl + 'static/text/1'
-                    }
+                    },
+                    dentists: baseUrl + 'dentists'
                 };
             }
         ]);
