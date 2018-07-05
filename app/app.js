@@ -8,7 +8,10 @@
         ]).run(runBlock);
 
     /* @ngInject */
-    function runBlock() {
+    function runBlock($timeout, authSvc) {
+        $timeout(function(){
+            authSvc.processAutoLogin();
+        });
     }
 })
 ();
