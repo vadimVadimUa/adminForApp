@@ -5,14 +5,18 @@
 
 
         /* @ngInject */
-    function userSvc($localStorage) {
+    function userSvc($localStorage, url, http) {
         var model = {
             resetData: resetData,
             getToken: getToken,
-            setToken: setToken
+            setToken: setToken,
+            removeUser: removeUser
         };
         return model;
 
+        function removeUser(user_id) {
+            return http.post(url.user.remove, user_id)
+        }
 
         function setToken(token){
             if(angular.isDefined(token)){

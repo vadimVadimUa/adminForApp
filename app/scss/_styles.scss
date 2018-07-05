@@ -50,6 +50,7 @@ html, body {
   margin: 0 !important;
   padding: 0 !important;
   background-color: #e4e5e6;
+  overflow: auto;
 }
 
 [ng\:cloak], [ng-cloak], .ng-cloak {
@@ -111,8 +112,27 @@ a:hover {
 
 .default-container {
   background: #fff;
-  padding: 20px;
+  padding: 20px 30px;
   border: 1px solid #c8ced3;
+  .search{
+    font-size: 16px;
+    border: 1px solid dimgrey;
+    padding: 5px;
+    width: 300px;
+    font-weight: 100;
+  }
+  .list-item {
+    padding: 2px 0;
+    margin: 8px 0;
+    border-bottom: 1px solid grey;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 40px;
+    p {
+      margin:0;
+    };
+  }
 }
 .default-header {
   font-size: 18px;

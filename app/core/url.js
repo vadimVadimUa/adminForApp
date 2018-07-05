@@ -20,7 +20,17 @@
                         terms: baseUrl + 'static/terms',
                         text: baseUrl + 'static/text/1'
                     },
-                    dentists: baseUrl + 'dentists'
+                    user: {
+                        remove: baseUrl + 'user/remove'
+                    },
+                    amount: {
+                        dentists: baseUrl + 'amount/dentists',
+                        patients: baseUrl + 'amount/patients',
+                        clinics: baseUrl + 'amount/clinics'
+                    },
+                    dentists: baseUrl + 'dentists',
+                    patients: baseUrl + 'patients',
+                    clinics: baseUrl + 'clinics'
                 };
             }
         ]);

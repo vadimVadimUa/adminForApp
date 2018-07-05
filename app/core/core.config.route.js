@@ -28,11 +28,19 @@
                 controllerAs: 'vm'
             })
             .state('app.dentist_detail', {
-                url: 'dentist-detail',
+                url: 'dentist-detail/{id}',
                 templateUrl: 'templates/dentist-detail/dentist-detail.html',
                 controller: 'DentistDetailCtrl',
                 params: { id : null },
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {
+                    /* @ngInject */
+                    dentist_info : function ($stateParams, userSvc) {
+                        if($stateParams.id){
+
+                        }
+                    }
+                }
             })
             .state('app.patients', {
                 url: 'patients',

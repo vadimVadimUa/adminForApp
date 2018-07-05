@@ -1,3 +1,27 @@
 <div class="clinics default-container">
-    <div class="default-header">Clinics</div>
+    <uib-tabset type="pills" class="pills">
+        <uib-tab heading="All Clinic" classes="btn-sm">
+            <div class="default-header">
+                <h1>Clinics list</h1>
+                <div class="search-control">
+                    <input class="search" type="search" placeholder="Search a clinic" ng-model="name">
+                    <button type="button" class="btn btn-secondary">Search</button>
+                </div>
+            </div>
+            <div class="list">
+                <div class="list-item" ng-repeat="clinic in vm.clinics | filter : name">
+                    <span>{{clinic.name + ' ' + clinic.phone}}</span>
+                    <p>{{clinic.address}}</p>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab heading="Statistic" classes="btn-sm" ng-click="vm.goShare()">
+            <div class="list">
+                <div class="list-item">
+                    {{vm.amount_clinic}}
+                </div>
+            </div>
+        </uib-tab>
+    </uib-tabset>
+
 </div>

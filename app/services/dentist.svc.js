@@ -6,10 +6,17 @@
     /* @ngInject */
     function dentistSvc(http, url,$localStorage) {
         var model = {
-
+            getAllDentist: getAllDentist,
+            getAmountDentist: getAmountDentist
         };
         return model;
 
+        function getAllDentist() {
+            return http.get(url.dentists)
+        }
 
+        function getAmountDentist() {
+            return http.get(url.amount.dentists)
+        }
     }
 })();

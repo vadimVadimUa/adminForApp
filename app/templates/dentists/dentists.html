@@ -1,4 +1,16 @@
 <div class="dentists default-container">
-    <div class="default-header">Dentists</div>
-    <button ng-click="vm.testConfirmDelete()">Test</button>
+    <div class="default-header">
+        <h1>Dentists : <span>{{vm.amount_dentist}}</span></h1>
+        <div class="search-control">
+            <input class="search" type="search" placeholder="Search a dentist" ng-model="name">
+            <button type="button" class="btn btn-secondary">Search</button>
+        </div>
+    </div>
+    <div class="list">
+        <div class="list-item" ng-repeat="dentist in vm.dentists | filter : name">
+            <span ui-sref="app.dentist_detail({id: dentist.id})">{{dentist.name + ' ' + dentist.lastname + ' ' + dentist.email + ' ' + dentist.phone}}</span>
+            <button class="btn btn-danger" ng-click="vm.deleteUser(dentist)">Delete</button>
+        </div>
+    </div>
+
 </div>

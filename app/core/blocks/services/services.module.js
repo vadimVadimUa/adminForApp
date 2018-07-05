@@ -7,7 +7,10 @@
         'service.authSvc',
         'service.modalSvc',
         'service.textSvc',
-        'service.messagesSvc'
+        'service.messagesSvc',
+        'service.dentistSvc',
+        'service.patientSvc',
+        'service.clinicsSvc'
     ]);
 
 })();
