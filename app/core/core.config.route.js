@@ -31,6 +31,7 @@
                 url: 'dentist-detail',
                 templateUrl: 'templates/dentist-detail/dentist-detail.html',
                 controller: 'DentistDetailCtrl',
+                params: { id : null },
                 controllerAs: 'vm'
             })
             .state('app.patients', {
@@ -43,6 +44,7 @@
                 url: 'patient-detail',
                 templateUrl: 'templates/patient-detail/patient-detail.html',
                 controller: 'PatientDetailCtrl',
+                params: { id : null },
                 controllerAs: 'vm'
             })
             .state('app.clinics', {
@@ -55,6 +57,7 @@
                 url: 'clinic-detail',
                 templateUrl: 'templates/clinic-detail/clinic-detail.html',
                 controller: 'ClinicDetailCtrl',
+                params: { id : null },
                 controllerAs: 'vm'
             })
             .state('app.text', {
