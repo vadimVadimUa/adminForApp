@@ -3,11 +3,14 @@
         .module('factory.url', [])
         .factory('url', [,
             function () {
-                var baseUrl = 'https://www.improvewell.uk/dashboard/api/api/v1/';
+                var baseUrl = 'http://denta.grassbusinesslabs.tk/api/';
 
                 return {
                     push: {
                         test: baseUrl + 'test'
+                    },
+                    admin: {
+                        login: baseUrl + 'admin/login`'
                     }
                 };
             }

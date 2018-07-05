@@ -4,7 +4,7 @@
         .controller('DentistsCtrl', DentistsCtrl);
 
     /* @ngInject */
-    function DentistsCtrl(modalSvc,userSvc) {
+    function DentistsCtrl(modalSvc) {
         var vm = this;
         vm.testConfirmDelete = function(){
             modalSvc.confirmDelete().result.then(function(res){
@@ -13,6 +13,5 @@
                 console.log(res);
             });
         };
-        var ss = userSvc.test();
     }
 })();

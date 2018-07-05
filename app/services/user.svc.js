@@ -7,12 +7,12 @@
 
     function userSvc() {
         var model = {
-            test: test
+            login: login
         };
         return model;
 
-        function test() {
-            return 'test user service'
+        function login(user) {
+            // return http.post(url.admin.login)
         }
     }
 })();
