@@ -5,17 +5,21 @@
         .factory('http', http);
 
     /* @ngInject */
-    function http($http, $q, $sessionStorage, toastr, $localStorage, $state, messagesNotice) {
-        var request = function (method, url, data, extras) {
-            var config = {
+    function http($rootScope, $http, $q, $sessionStorage, $localStorage, toastr) {
+        let request = function (method, url, data) {
+            $rootScope.loading = true;
+            let config = {
                 dataType: 'json',
                 method: method,
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json; charset=UTF-8'
-                }
+                    'Content-Type': 'application/json; charset=UTF-8',
+                },
+                withCredentials: true
             };
-
+            if (method === 'POST' && data.responseType) {
+                config.responseType = data.responseType;
+            }
             if (method === 'GET') {
                 config.params = data;
                 if (data && data.responseType) {
@@ -23,62 +27,110 @@
                 }
             } else {
                 config.data = data;
-                if (extras && extras.parameters) {
-                    config.params = extras.parameters;
-                }
             }
-
-            if ($sessionStorage.auth_key) {
-                config.url = url + '?auth_key=' + $sessionStorage.auth_key;
+            if ($localStorage.auth_key) {
+                url = url + '?auth_key=' + $localStorage.auth_key;
+            }
+            if ($localStorage.token) {
+                config.url = url;
+                // config.headers.Authorization = 'Token ' + $sessionStorage.token;
+                config.headers.Authorization = 'Bearer ' + $localStorage.token;
             } else {
                 config.url = url;
             }
+            return $http(config).then(requestSuccess, requestError);
+        };
 
-            return $http(config).then(
+        function requestSuccess(response) {
+            $rootScope.loading = false;
+            let defer = $q.defer();
+            if (response.data.error) {
+                toastr.error(response.data.error);
+                defer.reject(response.data.error);
+            }
+            else {
+                defer.resolve(response.data);
+            }
+            return defer.promise;
+        }
+
+        function requestError(response) {
+            let defer = $q.defer();
+            if (response.status === 200) {
+                toastr.error('Server Error: ' + response.data);
+            }
+            else if (response.status === -1) {
+                toastr.error('Server unavailable');
+            }
+            else if (response.status === 500) {
+                toastr.error(response.data.message);
+                // toastr.error('Server Error: ' + response.status + ' ' + response.data.message);
+            }
+            else if (response.status === 403) {
+                toastr.error('Access denied.');
+            }
+            else {
+                if (response.status === 401) {
+                    // $state.go('add-phone');
+                    toastr.error('Server Error: ' + response.status + ' ' + response.data.message);
+                    $rootScope.$broadcast('logout',{});
+                }
+                toastr.error(response.data.message);
+            }
+            defer.reject(response.data);
+            return defer.promise;
+        }
+
+        let requestFile = function (url, data) {
+            $rootScope.loading = true;
+            console.log(data);
+            let config = {
+                transformRequest: angular.identity,
+                headers: {
+                    'Content-Type': undefined
+                }
+            };
+
+            if ($localStorage.auth_key) {
+                url = url + '?auth_key=' + $localStorage.auth_key;
+            }
+
+            return $http.post(url, data, config).then(
                 function (response) {
-                    var defer = $q.defer();
+                    $rootScope.loading = false;
+                    let defer = $q.defer();
+
+                    // console.info('response', url, response);
                     if (response.data.error) {
-                        if(!extras || typeof extras.show_error === 'undefined' || extras.show_error === true){
-                            toastr.error(response.data.error);
-                        }
-                        defer.reject(response.data);
-                    } else {
-                        defer.resolve(response.data);
+                        toastr.error(response.data.error);
+                        defer.reject(response.data.error);
                     }
-                    // console.log('result from server', response);
+                    defer.resolve(response.data);
                     return defer.promise;
                 },
                 function (response) {
-                    console.info('error', config.headers);
-                    console.info('error', url, response);
-                    var defer = $q.defer();
-                    if (response.data && typeof response.data.status !== 'undefined') {
-                        if (response.data.status === 401) {
-                            delete $sessionStorage.auth_key;
-                            delete $localStorage.auth_key;
-                            $state.go('login');
-                            toastr.error(messagesNotice.error.access);
-                            defer.reject(response.data);
-                            return;
-                        }
-                    }
+                    let defer = $q.defer();
+                    // console.info('error', url, response);
+
                     if (response.status === 200) {
-                        toastr.error(messagesNotice.error.serverError + response.data);
+                        toastr.error('Server Error: ' + response.data);
                         defer.reject(response.data);
-                    } else if (response.status === -1) {
-                        toastr.error(messagesNotice.error.notInternetConnection);
+                    }
+                    else if (response.status === -1) {
+                        toastr.error('Server unavailable');
                         defer.reject(response.data);
-                    } else if (response.status === 500) {
-                        toastr.error(messagesNotice.error.serverError + response.status + ' ' + response.data.message);
-                        defer.reject(response.data);
-                    } else if (response.status === 403) {
-                        toastr.error(messagesNotice.error.serverAccessDenied);
-                        defer.reject(response.data);
-                    } else if (response.status === 400) {
+                    }
+                    else if (response.status === 500) {
                         toastr.error(response.data.message);
+                        // toastr.error('Server Error: ' + response.status + ' ' + response.data.message);
                         defer.reject(response.data);
-                    } else {
-                        toastr.error(messagesNotice.error.serverError + response.status + ' ' + response.statusText);
+                    }
+                    else if (response.status === 403) {
+                        toastr.error('Access denied.');
+                        defer.reject(response.data);
+                    }
+                    else {
+                        toastr.error('Server Error: ' + response.status + ' ' + response.data.message);
                         defer.reject(response.data);
                     }
                     defer.reject(response.data);
@@ -87,67 +139,12 @@
             );
         };
 
-        var requestFile = function (url, data) {
-            var config = {
-                transformRequest: angular.identity,
-                headers: {
-                    'Content-Type': undefined
-                }
-            };
-
-            if ($sessionStorage.auth_key) {
-                url = url + '?auth_key=' + $sessionStorage.auth_key;
-            }
-
-            return $http.post(url, data, config)
-                .then(
-                    function (response) {
-                        var defer = $q.defer();
-                        console.info('response', url, response);
-                        if (response.data.error) {
-                            toastr.error(response.data.error);
-                            defer.reject(response.data.error);
-                        }
-                        defer.resolve(response.data);
-                        return defer.promise;
-                    },
-                    function (response) {
-                        var defer = $q.defer();
-                        console.info('error', url, response);
-
-                        if (response.status === 200) {
-                            toastr.error(messagesNotice.error.serverError + response.data);
-                            defer.reject(response.data);
-                        }
-                        else if (response.status === -1) {
-                            toastr.error(messagesNotice.error.serverUnavailable);
-                            defer.reject(response.data);
-                        }
-                        else if (response.status === 500) {
-                            toastr.error(messagesNotice.error.serverError + response.status + ' ' + response.data.message);
-                            defer.reject(response.data);
-                        }
-                        else if (response.status === 403) {
-                            toastr.error(messagesNotice.error.serverAccessDenied);
-                            defer.reject(response.data);
-                        }
-                        else {
-                            toastr.error(messagesNotice.error.serverError + response.status + ' ' + response.statusText);
-                            defer.reject(response.data);
-                        }
-                        defer.reject(response.data);
-                        return defer.promise;
-                    }
-                );
-        };
-
-
         return {
             get: function (url, data) {
                 return request('GET', url, data);
             },
-            post: function (url, data, extras) {
-                return request('POST', url, data, extras);
+            post: function (url, data) {
+                return request('POST', url, data);
             },
             delete: function (url, data) {
                 return request('DELETE', url, data);
