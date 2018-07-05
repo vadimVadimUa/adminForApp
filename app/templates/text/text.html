@@ -1,3 +1,21 @@
 <div class="text default-container">
+    <uib-tabset type="pills">
+        <uib-tab heading="About" classes="btn-sm" ng-click="vm.about">
+            <button type="button" class="btn btn-primary">Update</button>
+        </uib-tab>
+        <uib-tab heading="Share" classes="btn-sm">
+            <textarea type="text" ng-model="vm.share.description"></textarea>
+            <button type="button" class="btn btn-primary">Update</button>
+        </uib-tab>
+        <uib-tab heading="Start Page" classes="btn-sm">
+            <button type="button" class="btn btn-primary">Update</button>
+        </uib-tab>
+        <uib-tab heading="Privacy" classes="btn-sm">
+            <button type="button" class="btn btn-primary">Update</button>
+        </uib-tab>
+        <uib-tab heading="Terms of use" classes="btn-sm">
+            <button type="button" class="btn btn-primary">Update</button>
+        </uib-tab>
+    </uib-tabset>
 
 </div>

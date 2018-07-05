@@ -3,8 +3,7 @@
 
     angular.module('service.authSvc', []).service('authSvc', authSvc);
 
-    authSvc.$inject = [];
-
+        /* @ngInject */
     function authSvc() {
         var model = {
             test: test

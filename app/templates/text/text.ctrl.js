@@ -3,10 +3,15 @@
         .module('app')
         .controller('TextCtrl', TextCtrl);
 
-    TextCtrl.$inject=[];
-    /* @ngInject */
-    function TextCtrl() {
-        var vm = this;
 
+    /* @ngInject */
+    function TextCtrl(textSvc) {
+        var vm = this;
+        vm.update = update;
+        vm.share = textSvc.getShare();
+
+        function update(data) {
+            textSvc.updateText(data);
+        }
     }
 })();
