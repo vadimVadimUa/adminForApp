@@ -3,17 +3,50 @@
 
     angular.module('service.authSvc', []).service('authSvc', authSvc);
 
-    authSvc.$inject = [];
 
-    function authSvc() {
+    function authSvc($rootScope) {
         var model = {
-            test: test
+            processAutoLogin: processAutoLogin,
+            isLogined: isLogined,
+            logout: logout
         };
-        return model;
 
-        function test(){
+        function test() {
             return 'test auth service'
         }
+
+        $rootScope.$on('logout', function (event, data) {
+            logout();
+        });
+
+        return model;
+
+
+        function processAutoLogin(callback) {
+            if (isLogined()) {
+                $state.go('app.dentists');
+            }
+            return callback && callback();
+        }
+
+
+        function isLogined() {
+            let user = userSvc.getUser();
+            if (angular.isDefined(user) && user.id && userSvc.getToken()) {
+                return true;
+            }
+            return false;
+        }
+
+        function logout() {
+            clearAuthData();
+            userSvc.resetData();
+            $state.go('login');
+        }
+
+        function clearAuthData() {
+        }
+
 
     }
 })();

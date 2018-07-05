@@ -8,7 +8,5 @@
     /* @ngInject */
     function PatientsCtrl(authSvc) {
         var vm = this;
-
-        var ss = authSvc.test();
     }
 })();

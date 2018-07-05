@@ -7,7 +7,7 @@
     /* @ngInject */
     function mainConfig($stateProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('login');
         $stateProvider
             .state('login', {
                 url: '/login',
@@ -27,16 +27,34 @@
                 controller: 'DentistsCtrl',
                 controllerAs: 'vm'
             })
+            .state('app.dentist_detail', {
+                url: 'dentist-detail',
+                templateUrl: 'templates/dentist-detail/dentist-detail.html',
+                controller: 'DentistDetailCtrl',
+                controllerAs: 'vm'
+            })
             .state('app.patients', {
                 url: 'patients',
                 templateUrl: 'templates/patients/patients.html',
                 controller: 'PatientsCtrl',
                 controllerAs: 'vm'
             })
+            .state('app.patient_detail', {
+                url: 'patient-detail',
+                templateUrl: 'templates/patient-detail/patient-detail.html',
+                controller: 'PatientDetailCtrl',
+                controllerAs: 'vm'
+            })
             .state('app.clinics', {
                 url: 'clinics',
                 templateUrl: 'templates/clinics/clinics.html',
                 controller: 'ClinicsCtrl',
+                controllerAs: 'vm'
+            })
+            .state('app.clinic_detail', {
+                url: 'clinic-detail',
+                templateUrl: 'templates/clinic-detail/clinic-detail.html',
+                controller: 'ClinicDetailCtrl',
                 controllerAs: 'vm'
             })
             .state('app.text', {

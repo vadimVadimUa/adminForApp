@@ -1,7 +1,7 @@
 ;(function () {
     angular
         .module('factory.url', [])
-        .factory('url', [,
+        .factory('url', [
             function () {
                 var baseUrl = 'http://denta.grassbusinesslabs.tk/api/';
 

@@ -3,7 +3,6 @@
 
     angular.module('service.userSvc', []).service('userSvc', userSvc);
 
-    userSvc.$inject = [];
 
     function userSvc() {
         var model = {
