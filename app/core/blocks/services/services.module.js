@@ -6,7 +6,8 @@
         'service.userSvc',
         'service.authSvc',
         'service.modalSvc',
-        'service.textSvc'
+        'service.textSvc',
+        'service.messagesSvc'
     ]);
 
 })();

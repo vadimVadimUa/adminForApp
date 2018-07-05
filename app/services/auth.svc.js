@@ -4,14 +4,14 @@
     angular.module('service.authSvc', []).service('authSvc', authSvc);
 
         /* @ngInject */
-    function authSvc() {
+    function authSvc(url, http) {
         var model = {
-            test: test
+            login: login
         };
         return model;
 
-        function test(){
-            return 'test auth service'
+        function login(user) {
+            return http.post(url.admin.login, user)
         }
 
     }

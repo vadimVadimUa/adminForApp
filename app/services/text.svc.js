@@ -4,7 +4,7 @@
     angular.module('service.textSvc', []).service('textSvc', textSvc);
 
         /* @ngInject */
-    function textSvc() {
+    function textSvc(url, http) {
         var model = {
             getShare: getShare,
             getPrivacy: getPrivacy,
@@ -16,32 +16,27 @@
         return model;
 
         function updateText(data) {
-            return http.post(url.static.text, data)
-        }
-
-        function getShare(){
-            return 'lakjdfhlakjsdfhlkajcdshflknacsjcfkdshnlcfkjsdhnlcfkjadshnkcfjasdhnlfcjhn'
-            // return http.get(url.static.share).then(function (res) {
-            //     if(res){
-            //         return share(res.description)
-            //     }
-            // });
-        }
-
-        function getPrivacy(){
-            // return http.get(url.static.privacy);
+            return http.put(url.static.text, data)
         }
 
         function getAbout(){
-            // return http.get(url.static.about);
+            return http.get(url.static.about);
         }
 
-        function getTerms(){
-            // return http.get(url.static.terms);
+        function getShare(){
+            return http.get(url.static.share)
         }
 
         function getStartPage(){
-            // return http.get(url.static.start_page);
+            return http.get(url.static.start_page);
+        }
+
+        function getPrivacy(){
+            return http.get(url.static.privacy);
+        }
+
+        function getTerms(){
+            return http.get(url.static.terms);
         }
     }
 })();

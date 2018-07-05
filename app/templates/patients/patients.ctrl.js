@@ -6,9 +6,8 @@
     PatientsCtrl.$inject=['authSvc'];
 
     /* @ngInject */
-    function PatientsCtrl(authSvc) {
+    function PatientsCtrl() {
         var vm = this;
 
-        var ss = authSvc.test();
     }
 })();
