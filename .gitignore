@@ -10,3 +10,4 @@ app/bower_components
 build/
 build
 app/content/css/app.css
+package-lock.json
