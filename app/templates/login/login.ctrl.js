@@ -4,18 +4,37 @@
         .controller('LoginCtrl', LoginCtrl);
 
     /* @ngInject */
-    function LoginCtrl(userSvc, $state) {
+    function LoginCtrl(authSvc, $state, toastr, $localStorage) {
         var vm = this;
         vm.user = {
-            name: 'admin',
-            lastname: 'admin',
-            email: 'admin@admin.admin',
+            email: 'admin1234@admin.admin',
+            password: 'Admin1234!'
         };
         vm.login = login;
 
         function login() {
-            // userSvc.login(vm.user);
-            $state.go('app.dentists');
+            authSvc.login(vm.user).then(function (data) {
+                if(data.success) {
+                    $state.go('app.dentists');
+                    $localStorage.token = data.token;
+                } else {
+                    if(data.message) {
+                        toastr.error(data.message);
+                    }
+                }
+            }, function (err) {
+                var err_text = '';
+                angular.forEach(err, function (val, key) {
+                    if (angular.isArray(val)){
+                        err_text += val.reduce(function (acc, current) {
+                            return acc + '\n' + current;
+                        }, '');
+                    }
+                });
+                if(err_text.length){
+                    toastr.error(err_text);
+                }
+            });
         }
 
     }

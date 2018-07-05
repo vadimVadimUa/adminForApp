@@ -4,16 +4,17 @@
     angular.module('service.authSvc', []).service('authSvc', authSvc);
 
 
-    function authSvc($rootScope) {
+    function authSvc($rootScope, url, http) {
         var model = {
             processAutoLogin: processAutoLogin,
             isLogined: isLogined,
-            logout: logout
+            logout: logout,
+            login: login
         };
+        return model;
 
-        function test() {
-            return 'test auth service'
-        }
+        function login(user) {
+            return http.post(url.admin.login, user)
 
         $rootScope.$on('logout', function (event, data) {
             logout();

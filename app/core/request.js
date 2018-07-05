@@ -5,10 +5,10 @@
         .factory('http', http);
 
     /* @ngInject */
-    function http($rootScope, $http, $q, $sessionStorage, $localStorage, toastr) {
-        let request = function (method, url, data) {
+    function http($rootScope, $http, $q, $localStorage, toastr) {
+        var request = function (method, url, data) {
             $rootScope.loading = true;
-            let config = {
+            var config = {
                 dataType: 'json',
                 method: method,
                 headers: {
