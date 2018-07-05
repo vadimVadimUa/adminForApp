@@ -5,11 +5,29 @@
 
 
         /* @ngInject */
-    function userSvc() {
+    function userSvc($localStorage) {
         var model = {
-
+            resetData: resetData,
+            getToken: getToken,
+            setToken: setToken
         };
         return model;
+
+
+        function setToken(token){
+            if(angular.isDefined(token)){
+                $localStorage.token = token;
+            }
+        }
+
+        function getToken(){
+            return $localStorage.token || '';
+        }
+
+        function resetData(){
+            $localStorage.token = null;
+            delete $localStorage.token;
+        }
 
     }
 })();

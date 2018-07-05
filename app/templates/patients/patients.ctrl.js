@@ -8,6 +8,5 @@
     /* @ngInject */
     function PatientsCtrl() {
         var vm = this;
-
     }
 })();
