@@ -68,6 +68,12 @@
                 params: { id : null },
                 controllerAs: 'vm'
             })
+            .state('app.purchase', {
+                url: 'purchase',
+                templateUrl: 'templates/purchase/purchase.html',
+                controller: 'PurchaseCtrl',
+                controllerAs: 'vm'
+            })
             .state('app.text', {
                 url: 'text',
                 templateUrl: 'templates/text/text.html',
