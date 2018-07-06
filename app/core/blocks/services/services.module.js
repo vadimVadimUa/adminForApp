@@ -10,7 +10,9 @@
         'service.messagesSvc',
         'service.dentistSvc',
         'service.patientSvc',
-        'service.clinicsSvc'
+        'service.clinicsSvc',
+        'service.specSvc',
+        'service.purchaseSvc'
     ]);
 
 })();

@@ -22,7 +22,6 @@
         function getAmount() {
             clinicsSvc.getAmountClinic().then(function (res) {
                 vm.amount_clinic = res;
-                console.log(res)
             });
         }
     }

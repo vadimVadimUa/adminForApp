@@ -1,14 +1,11 @@
-<div class="patients default-container">
+<div class="purchase default-container">
     <div class="default-header">
-        <h1>Patients</h1>
-        <div class="search-control">
-            <button ng-click="newPrice()" type="button" class="btn btn-primary">New</button>
-        </div>
+        <h1>Purchase</h1>
+        <button ng-click="vm.newPurchase()" type="button" class="btn btn-primary">New</button>
     </div>
     <div class="list">
-        <div class="list-item" ng-repeat="purchase in vm.purchases | filter : name">
-            <!--{{patient.name + ' ' + patient.lastname + ' ' + patient.email + ' ' + patient.phone}}-->
-            {{purchase}}
+        <div class="form-control" ng-repeat="purchase in vm.purchases">
+            {{'Product id: ' + purchase.productId + ' ' +'Period: ' + purchase.period + ' ' + 'Price: ' + purchase.price}}
         </div>
     </div>
 </div>

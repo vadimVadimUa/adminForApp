@@ -2,13 +2,14 @@
     <div class="default-header">
         <h1>Dentists : <span>{{vm.amount_dentist}}</span></h1>
         <div class="search-control">
-            <input class="search" type="search" placeholder="Search a dentist" ng-model="name">
-            <button type="button" class="btn btn-secondary">Search</button>
+            <input class="form-control" type="search" placeholder="Search a dentist" ng-model="name">
         </div>
     </div>
     <div class="list">
-        <div class="list-item" ng-repeat="dentist in vm.dentists | filter : name">
-            <span ui-sref="app.dentist_detail({id: dentist.id})">{{dentist.name + ' ' + dentist.lastname + ' ' + dentist.email + ' ' + dentist.phone}}</span>
+        <div class="form-block" ng-repeat="dentist in vm.dentists | filter : name">
+            <span class="form-control" ui-sref="app.dentist_detail({id: dentist.id})">
+                {{dentist.name + ' ' + dentist.lastname + ' ' + dentist.email + ' ' + dentist.phone}}
+            </span>
             <button class="btn btn-danger" ng-click="vm.deleteUser(dentist)">Delete</button>
         </div>
     </div>

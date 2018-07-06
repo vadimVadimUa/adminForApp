@@ -7,14 +7,16 @@
 @import "../templates/dentists/dentists.scss";
 @import "../templates/patients/patients.scss";
 @import "../templates/clinics/clinics.scss";
+@import "../templates/specialities/spec.scss";
 @import "../templates/purchase/purchase.scss";
 @import "../templates/text/text.scss";
 @import "../templates/dentist-detail/dentist-detail";
 @import "../templates/patient-detail/patient-detail";
 @import "../templates/clinic-detail/clinic-detail";
 
-//directiev styles
+//directive styles
 
 
 //components styles
 @import "../components/confirm/confirm.scss";
+@import "../components/purchase_create/purchase_create";

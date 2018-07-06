@@ -4,14 +4,15 @@
         .controller('DentistDetailCtrl', DentistDetailCtrl);
 
     /* @ngInject */
-    function DentistDetailCtrl(modalSvc) {
+    function DentistDetailCtrl(modalSvc, dentist_info) {
         var vm = this;
-        vm.testConfirmDelete = function(){
-            modalSvc.confirmDelete().result.then(function(res){
-                console.log(res);
-            },function(res){
-                console.log(res);
-            });
-        };
+        vm.user = dentist_info;
+        // vm.testConfirmDelete = function(){
+        //     modalSvc.confirmDelete().result.then(function(res){
+        //         console.log(res);
+        //     },function(res){
+        //         console.log(res);
+        //     });
+        // };
     }
 })();

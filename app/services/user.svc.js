@@ -10,12 +10,19 @@
             resetData: resetData,
             getToken: getToken,
             setToken: setToken,
-            removeUser: removeUser
+            removeUser: removeUser,
+            getUser: getUser
         };
         return model;
 
         function removeUser(user_id) {
             return http.post(url.user.remove, user_id)
+        }
+
+        function getUser(user_id) {
+            return http.get(url.user.id + user_id).then(function(res){
+                return res;
+            });
         }
 
         function setToken(token){

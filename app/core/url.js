@@ -21,16 +21,24 @@
                         text: baseUrl + 'static/text/1'
                     },
                     user: {
-                        remove: baseUrl + 'user/remove'
+                        remove: baseUrl + 'user/remove',
+                        id: baseUrl + 'user/'
                     },
                     amount: {
                         dentists: baseUrl + 'amount/dentists',
                         patients: baseUrl + 'amount/patients',
                         clinics: baseUrl + 'amount/clinics'
                     },
+                    purchase_plan: {
+                        create: baseUrl + 'purchase-plan/create',
+                        get: baseUrl + 'purchase-plan/get'
+                    },
                     dentists: baseUrl + 'dentists',
                     patients: baseUrl + 'patients',
-                    clinics: baseUrl + 'clinics'
+                    clinics: baseUrl + 'clinics',
+                    clinic_id: baseUrl + 'clinic/',
+                    specialities: baseUrl + 'specialties',
+                    specialty: baseUrl + 'specialty'
                 };
             }
         ]);

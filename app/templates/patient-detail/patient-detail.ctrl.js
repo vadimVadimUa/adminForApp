@@ -4,14 +4,8 @@
         .controller('PatientDetailCtrl', PatientDetailCtrl);
 
     /* @ngInject */
-    function PatientDetailCtrl(modalSvc) {
+    function PatientDetailCtrl(patient_info) {
         var vm = this;
-        vm.testConfirmDelete = function(){
-            modalSvc.confirmDelete().result.then(function(res){
-                console.log(res);
-            },function(res){
-                console.log(res);
-            });
-        };
+        vm.user = patient_info;
     }
 })();

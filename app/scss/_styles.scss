@@ -106,35 +106,48 @@ a:hover {
 }
 
 .row {
-  margin-right: 0px;
-  margin-left: 0px;
+  margin-right: 0;
+  margin-left: 0;
 }
 
 .default-container {
   background: #fff;
   padding: 20px 30px;
   border: 1px solid #c8ced3;
-  .search{
-    font-size: 16px;
-    border: 1px solid dimgrey;
-    padding: 5px;
-    width: 300px;
-    font-weight: 100;
+  min-height:100%;
+  input[type=search]{
+    margin-bottom: 30px;
   }
-  .list-item {
-    padding: 2px 0;
-    margin: 8px 0;
-    border-bottom: 1px solid grey;
+  .form-block{
+    display: flex;
+    span{
+      cursor: pointer;
+    }
+    button.btn.btn-success, button.btn.btn-danger  {
+      margin: 4px 5px;
+      padding: 0 10px;
+      height: 35px;
+    }
+  }
+  .form-control {
+    margin: 5px 0;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    height: 40px;
     p {
       margin:0;
     };
   }
 }
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover,.nav>li>a{
+  font-size: 16px;
+}
 .default-header {
   font-size: 18px;
   font-weight: bold;
+}
+.mb_1{
+  font-size: 18px;
+  padding-right: 10px;
+  text-decoration-line: underline;
 }
