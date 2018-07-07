@@ -8,7 +8,7 @@
         var model = {
             getAllSpec: getAllSpec,
             createSpec: createSpec,
-            updateClinic: updateClinic
+            updateSpecialty: updateSpecialty
         };
         return model;
 
@@ -20,7 +20,7 @@
             return http.get(url.specialities)
         }
 
-        function updateClinic(spec) {
+        function updateSpecialty(spec) {
             var send = {
               name: spec.name
             };

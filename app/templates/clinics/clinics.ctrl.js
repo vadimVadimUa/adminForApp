@@ -6,12 +6,9 @@
     /* @ngInject */
     function ClinicsCtrl(clinicsSvc) {
         var vm = this;
-        init();
+        vm.getAmount = getAmount;
 
-        function init(){
-            getClinics();
-            getAmount();
-        }
+        getClinics();
 
         function getClinics() {
             clinicsSvc.getAllClinic().then(function (res) {
@@ -21,7 +18,7 @@
 
         function getAmount() {
             clinicsSvc.getAmountClinic().then(function (res) {
-                vm.amount_clinic = res;
+                vm.clinic_countries = res;
             });
         }
     }

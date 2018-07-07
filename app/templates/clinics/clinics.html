@@ -14,13 +14,13 @@
                 </div>
             </div>
         </uib-tab>
-        <uib-tab heading="Statistic" classes="btn-sm" ng-click="vm.goShare()">
+        <uib-tab heading="Statistic" classes="btn-sm" ng-click="vm.getAmount()">
             <div class="list">
                 <div class="default-header">
                     <h1>Clinic statistics by country</h1>
                 </div>
-                <div class="form-control" ng-repeat="clinic_country in vm.amount_clinic">
-                    <span>{{clinic_country.name + ' ' + clinic_country.phone}}</span>
+                <div class="form-control" ng-repeat="clinic_country in vm.clinic_countries">
+                    <span>{{clinic_country}}</span>
                 </div>
             </div>
         </uib-tab>

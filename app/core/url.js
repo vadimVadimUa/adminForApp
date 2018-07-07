@@ -20,6 +20,8 @@
                         terms: baseUrl + 'static/terms',
                         text: baseUrl + 'static/text/1'
                     },
+
+                    question: baseUrl + 'question',
                     user: {
                         remove: baseUrl + 'user/remove',
                         id: baseUrl + 'user/'

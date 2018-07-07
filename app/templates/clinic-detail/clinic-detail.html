@@ -4,4 +4,12 @@
     <p><span class="mb_1">Address</span><span>{{vm.clinic.address}}</span></p>
     <p><span class="mb_1">Phone</span><span>{{vm.clinic.phone}}</span></p>
     <p><span class="mb_1">Clinic Id</span><span>{{vm.clinic.id}}</span></p>
+    <h3>Users</h3>
+    <div ui-sref="app.dentist_detail({id: user.id})" class="form-control"
+         ng-if="vm.clinic.users && vm.clinic.users.length" ng-repeat="user in vm.clinic.users">
+        {{user.name + ' ' + user.lastname + ' ' + user.email + ' ' + user.phone}}
+    </div>
+    <div ng-if="!vm.clinic.users.length">
+        <span>Does not have a user</span>
+    </div>
 </div>

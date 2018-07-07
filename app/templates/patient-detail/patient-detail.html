@@ -6,4 +6,15 @@
     <p><span class="mb_1">Phone</span><span>{{vm.user.phone}}</span></p>
     <p><span class="mb_1">User id</span><span>{{vm.user.id}}</span></p>
     <p><span class="mb_1">Country</span><span>{{vm.user.country}}</span></p>
+    <div class="list">
+        <h3>Dentist</h3>
+        <div ng-if="vm.user.dentists && vm.user.dentists.length" class="form-control"
+             ui-sref="app.dentist_detail({id: dentist.id})"
+             ng-repeat="dentist in vm.user.dentists">
+            <span>{{dentist.name + ' ' + dentist.lastname + ' ' + dentist.phone}}</span>
+        </div>
+        <div ng-if="!vm.user.dentists.length">
+            <span>Does not have a dentist</span>
+        </div>
+    </div>
 </div>

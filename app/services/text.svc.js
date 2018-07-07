@@ -11,7 +11,9 @@
             getAbout: getAbout,
             getTerms: getTerms,
             getStartPage: getStartPage,
-            updateText: updateText
+            getAllQuestion: getAllQuestion,
+            updateText: updateText,
+            updateQuestion: updateQuestion
         };
         return model;
 
@@ -38,5 +40,16 @@
         function getTerms(){
             return http.get(url.static.terms);
         }
+        function getAllQuestion(){
+            return http.get(url.question);
+        }
+
+        function updateQuestion(quest) {
+            var send = {
+                name: quest.name
+            };
+                return http.put(url.question + '/' + quest.id, send)
+        }
+
     }
 })();

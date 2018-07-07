@@ -8,12 +8,13 @@
     function TextCtrl(textSvc, toastr, messagesSvc) {
         var vm = this;
         vm.update = update;
+        vm.updateQuest = updateQuest;
         vm.goAbout = goAbout;
         vm.goShare = goShare;
         vm.goStartPage = goStartPage;
         vm.goPrivacy = goPrivacy;
         vm.goTermsOfUse = goTermsOfUse;
-        vm.share = textSvc.getShare();
+        vm.goQuestion = goQuestion;
 
         goAbout();
 
@@ -52,6 +53,24 @@
                     vm.terms = res;
                 }
             });
+        }
+        function goQuestion() {
+            textSvc.getAllQuestion().then(function (res) {
+                if(res){
+                    vm.questions = res;
+                }
+            });
+        }
+
+        function updateQuest(quest) {
+            textSvc.updateQuestion(quest).then(function (data) {
+                if(data.success){
+                    goQuestion();
+                    toastr.success(data.message);
+                } else {
+                    toastr.error(data.message);
+                }
+            })
         }
 
         function update(data) {

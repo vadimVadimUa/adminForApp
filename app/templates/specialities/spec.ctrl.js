@@ -17,7 +17,7 @@
         }
 
         function update(spec) {
-            specSvc.updateClinic(spec).then(function (data) {
+            specSvc.updateSpecialty(spec).then(function (data) {
                 if(data.success){
                     getSpec();
                     toastr.success(data.message);
