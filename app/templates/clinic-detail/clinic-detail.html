@@ -5,7 +5,7 @@
     <p><span class="mb_1">Phone</span><span>{{vm.clinic.phone}}</span></p>
     <p><span class="mb_1">Clinic Id</span><span>{{vm.clinic.id}}</span></p>
     <h3>Users</h3>
-    <div ui-sref="app.dentist_detail({id: user.id})" class="form-control"
+    <div ui-sref="app.dentist_detail({id: user.id})" class="form-control pointer"
          ng-if="vm.clinic.users && vm.clinic.users.length" ng-repeat="user in vm.clinic.users">
         {{user.name + ' ' + user.lastname + ' ' + user.email + ' ' + user.phone}}
     </div>

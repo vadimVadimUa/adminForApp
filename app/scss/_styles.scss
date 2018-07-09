@@ -120,9 +120,6 @@ a:hover {
   }
   .form-block{
     display: flex;
-    span{
-      cursor: pointer;
-    }
     button.btn.btn-success, button.btn.btn-danger  {
       margin: 4px 5px;
       padding: 0 10px;
@@ -150,4 +147,7 @@ a:hover {
   font-size: 18px;
   padding-right: 10px;
   text-decoration-line: underline;
+}
+.pointer{
+  cursor: pointer;
 }

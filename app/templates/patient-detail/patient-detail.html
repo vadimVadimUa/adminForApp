@@ -9,7 +9,7 @@
     <p><span class="mb_1">Emergency Counter</span><span>{{vm.user.emergency_count}}</span></p>
     <div class="list">
         <h3>Dentist</h3>
-        <div ng-if="vm.user.dentists && vm.user.dentists.length" class="form-control"
+        <div ng-if="vm.user.dentists && vm.user.dentists.length" class="form-control pointer"
              ui-sref="app.dentist_detail({id: dentist.id})"
              ng-repeat="dentist in vm.user.dentists">
             <span>{{dentist.name + ' ' + dentist.lastname + ' ' + dentist.phone}}</span>
