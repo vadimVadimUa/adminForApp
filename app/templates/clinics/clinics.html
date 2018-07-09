@@ -19,8 +19,8 @@
                 <div class="default-header">
                     <h1>Clinic statistics by country</h1>
                 </div>
-                <div class="form-control" ng-repeat="clinic_country in vm.clinic_countries">
-                    <span>{{clinic_country}}</span>
+                <div class="form-control" ng-repeat="item in vm.clinic_countries">
+                    <span>{{item.country + ' ' + item.count}}</span>
                 </div>
             </div>
         </uib-tab>
