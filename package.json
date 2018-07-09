@@ -57,7 +57,8 @@
     ],
     "fonts": [],
     "images": [
-      "./app/content/images/**/*"
+      "./app/content/images/**/*",
+      "./app/content/img/**/*"
     ],
     "vendorjs": [
       "./app/bower_components/jquery/dist/jquery.js",

@@ -34,13 +34,14 @@
                 params: { id : null },
                 controllerAs: 'vm',
                 resolve: {
+                    /* @ngInject */
                     dentist_info : function ($stateParams, userSvc) {
                         if($stateParams.id){
                             return userSvc.getUser($stateParams.id).then(function (res) {
                                 return res.user
                             });
                         } else {
-                            return
+                            return;
                         }
                     }
                 }
@@ -58,13 +59,14 @@
                 params: { id : null },
                 controllerAs: 'vm',
                 resolve: {
+                    /* @ngInject */
                     patient_info : function ($stateParams, userSvc) {
                         if($stateParams.id){
                             return userSvc.getUser($stateParams.id).then(function (res) {
                                 return res.user
                             });
                         } else {
-                            return
+                            return;
                         }
                     }
                 }
@@ -88,13 +90,14 @@
                 params: { id : null },
                 controllerAs: 'vm',
                 resolve: {
+                    /* @ngInject */
                     clinic_info : function ($stateParams, clinicsSvc) {
                         if($stateParams.id){
                             return clinicsSvc.getClinic($stateParams.id).then(function (res) {
                                 return res
                             });
                         } else {
-                            return
+                            return;
                         }
                     }
                 }
