@@ -2,14 +2,14 @@
     <uib-tabset type="pills" class="pills">
         <uib-tab heading="All Clinic" classes="btn-sm">
             <div class="default-header">
-                <h1>Clinics</h1>
+                <h1>Clinics : {{vm.count_clinic}}</h1>
                 <div class="search-control">
-                    <input class="form-control" class="search" type="search" placeholder="Search a clinic" ng-model="name">
+                    <input class="form-control" type="search" placeholder="Search a clinic" ng-model="name">
                 </div>
             </div>
             <div class="list">
-                <div ui-sref="app.clinic_detail({id: clinic.id})" class="form-control"
-                     ng-repeat="clinic in vm.clinics | filter : name track by $index ">
+                <div ui-sref="app.clinic_detail({id: clinic.id})" class="form-control pointer"
+                     ng-repeat="clinic in vm.clinics | filter : name">
                     <span>{{clinic.name + ' ' + clinic.phone}}</span>
                     <p>{{clinic.address}}</p>
                 </div>
@@ -20,7 +20,7 @@
                 <div class="default-header">
                     <h1>Clinic statistics by country</h1>
                 </div>
-                <div class="form-control" ng-repeat="item in vm.clinic_countries track by $index">
+                <div class="form-control pointer" ng-repeat="item in vm.clinic_countries track by $index">
                     <span>{{item.country + ' ' + item.count}}</span>
                 </div>
             </div>
