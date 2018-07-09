@@ -13,6 +13,7 @@
         function getClinics() {
             clinicsSvc.getAllClinic().then(function (res) {
                 vm.clinics = res;
+                vm.count_clinic = vm.clinics.length;
             });
         }
 
