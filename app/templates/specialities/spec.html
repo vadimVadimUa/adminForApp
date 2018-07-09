@@ -4,7 +4,7 @@
             <button ng-click="vm.newSpecialty()" type="button" class="btn btn-primary">New</button>
         </div>
         <div class="list">
-            <div class="form-block" ng-repeat="spec in vm.specialities | filter : name">
+            <div class="form-block" ng-repeat="spec in vm.specialities | filter : name track by $index ">
                 <input class="form-control" type="text" ng-model="spec.name">
                 <button class="btn btn-success" ng-click="vm.update(spec)">Update</button>
             </div>

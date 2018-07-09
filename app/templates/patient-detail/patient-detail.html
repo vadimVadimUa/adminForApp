@@ -10,7 +10,7 @@
         <h3>Dentist</h3>
         <div ng-if="vm.user.dentists && vm.user.dentists.length" class="form-control"
              ui-sref="app.dentist_detail({id: dentist.id})"
-             ng-repeat="dentist in vm.user.dentists">
+             ng-repeat="dentist in vm.user.dentists track by $index">
             <span>{{dentist.name + ' ' + dentist.lastname + ' ' + dentist.phone}}</span>
         </div>
         <div ng-if="!vm.user.dentists.length">

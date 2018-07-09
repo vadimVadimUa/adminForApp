@@ -6,6 +6,6 @@
     /* @ngInject */
     function ClinicDetailCtrl(clinic_info) {
         var vm = this;
-        vm.clinic = clinic_info
+        vm.clinic = clinic_info;
     }
 })();

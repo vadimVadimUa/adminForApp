@@ -8,7 +8,8 @@
                 </div>
             </div>
             <div class="list">
-                <div ui-sref="app.clinic_detail({id: clinic.id})" class="form-control" ng-repeat="clinic in vm.clinics | filter : name">
+                <div ui-sref="app.clinic_detail({id: clinic.id})" class="form-control"
+                     ng-repeat="clinic in vm.clinics | filter : name track by $index ">
                     <span>{{clinic.name + ' ' + clinic.phone}}</span>
                     <p>{{clinic.address}}</p>
                 </div>
@@ -19,7 +20,7 @@
                 <div class="default-header">
                     <h1>Clinic statistics by country</h1>
                 </div>
-                <div class="form-control" ng-repeat="item in vm.clinic_countries">
+                <div class="form-control" ng-repeat="item in vm.clinic_countries track by $index">
                     <span>{{item.country + ' ' + item.count}}</span>
                 </div>
             </div>

@@ -4,7 +4,7 @@
     angular.module('service.dentistSvc', []).factory('dentistSvc', dentistSvc);
 
     /* @ngInject */
-    function dentistSvc(http, url,$localStorage) {
+    function dentistSvc(http, url) {
         var model = {
             getAllDentist: getAllDentist,
             getAmountDentist: getAmountDentist

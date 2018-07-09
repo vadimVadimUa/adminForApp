@@ -4,7 +4,7 @@
         <button ng-click="vm.newPurchase()" type="button" class="btn btn-primary">New</button>
     </div>
     <div class="list">
-        <div class="form-control" ng-repeat="purchase in vm.purchases">
+        <div class="form-control" ng-repeat="purchase in vm.purchases track by $index ">
             {{'Product id: ' + purchase.productId + ' ' +'Period: ' + purchase.period + ' ' + 'Price: ' + purchase.price}}
         </div>
     </div>
