@@ -6,6 +6,7 @@
     <p><span class="mb_1">Phone</span><span>{{vm.user.phone}}</span></p>
     <p><span class="mb_1">User id</span><span>{{vm.user.id}}</span></p>
     <p><span class="mb_1">Country</span><span>{{vm.user.country}}</span></p>
+    <p><span class="mb_1">Emergency Counter</span><span>{{vm.user.emergency_count}}</span></p>
     <h3>Clinic</h3>
     <!--<p><span class="mb_1">Name</span><span>{{vm.user.clinic.name}}</span></p>-->
     <!--<p><span class="mb_1">Address</span><span>{{vm.user.clinic.address}}</span></p>-->
@@ -16,7 +17,7 @@
         <p>{{vm.user.clinic.address}}</p>
     </div>
     <div class="list">
-        <h3>Patients</h3>
+        <h3>Patients quantity : {{vm.user.owner_patient}}</h3>
         <div ng-if="vm.user.patients && vm.user.patients.length" class="form-control"
              ui-sref="app.patient_detail({id: patient.id})" ng-repeat="patient in vm.user.patients track by $index ">
             <span>{{patient.name + ' ' + patient.lastname + ' ' + patient.phone}}</span>
