@@ -6,7 +6,7 @@
         </div>
     </div>
     <div class="list">
-        <div class="form-block pointer" ng-repeat="dentist in vm.dentists | filter : name">
+        <div class="form-block pointer" ng-repeat="dentist in vm.dentists | filter : name track by $index ">
             <span class="form-control" ui-sref="app.dentist_detail({id: dentist.id})">
                 {{dentist.name + ' ' + dentist.lastname + ' ' + dentist.email + ' ' + dentist.phone}}
             </span>

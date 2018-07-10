@@ -3,7 +3,7 @@
 
     angular.module('service.textSvc', []).service('textSvc', textSvc);
 
-        /* @ngInject */
+    /* @ngInject */
     function textSvc(url, http) {
         var model = {
             getShare: getShare,
@@ -21,26 +21,27 @@
             return http.put(url.static.text, data)
         }
 
-        function getAbout(){
+        function getAbout() {
             return http.get(url.static.about);
         }
 
-        function getShare(){
+        function getShare() {
             return http.get(url.static.share)
         }
 
-        function getStartPage(){
+        function getStartPage() {
             return http.get(url.static.start_page);
         }
 
-        function getPrivacy(){
+        function getPrivacy() {
             return http.get(url.static.privacy);
         }
 
-        function getTerms(){
+        function getTerms() {
             return http.get(url.static.terms);
         }
-        function getAllQuestion(){
+
+        function getAllQuestion() {
             return http.get(url.question);
         }
 
@@ -48,7 +49,7 @@
             var send = {
                 name: quest.name
             };
-                return http.put(url.question + '/' + quest.id, send)
+            return http.put(url.question + '/' + quest.id, send)
         }
 
     }

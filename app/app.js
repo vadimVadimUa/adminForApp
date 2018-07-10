@@ -17,5 +17,4 @@
             authSvc.checkLogin();
         });
     }
-})
-();
+})();

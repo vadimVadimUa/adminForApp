@@ -32,7 +32,7 @@
                 return callback && callback();
             }
 
-            function checkLogin(){
+            function checkLogin() {
                 if (!isLogined()) {
                     $state.go('login');
                 }
@@ -49,7 +49,8 @@
             function logout() {
                 clearAuthData();
                 userSvc.resetData();
-                $state.go('login');
+                $state.go('login', {}, {reload: true});
+                window.location.reload(true);
             }
 
             function clearAuthData() {

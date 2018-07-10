@@ -4,17 +4,14 @@
         .controller('AppCtrl', AppCtrl);
 
     /* @ngInject */
-    function AppCtrl($state) {
+    function AppCtrl($state, authSvc) {
         var vm = this;
-        vm.logout = logout;
+        vm.logout = authSvc.logout;
         vm.toggleMenu = toggleMenu;
         vm.menuOpen = true;
 
         function toggleMenu(){
             vm.menuOpen = !vm.menuOpen;
-        }
-        function logout() {
-            $state.go('login');
         }
     }
 })();

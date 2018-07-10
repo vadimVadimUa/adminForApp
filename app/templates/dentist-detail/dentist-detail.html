@@ -20,7 +20,7 @@
     <div class="list">
         <h3>Patients</h3>
         <div ng-if="vm.user.patients && vm.user.patients.length" class="form-control pointer"
-             ui-sref="app.patient_detail({id: patient.id})" ng-repeat="patient in vm.user.patients">
+             ui-sref="app.patient_detail({id: patient.id})" ng-repeat="patient in vm.user.patients track by $index">
             <span>{{patient.name + ' ' + patient.lastname + ' ' + patient.phone}}</span>
         </div>
         <div ng-if="!vm.user.patients.length">

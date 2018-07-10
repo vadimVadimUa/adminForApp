@@ -1,5 +1,6 @@
 <div class="patient-detail default-container">
     <div class="default-header"><h2>Patient detail</h2></div>
+
     <p><span class="mb_1">Name</span><span>{{vm.user.name}}</span></p>
     <p><span class="mb_1">Last name</span><span>{{vm.user.lastname}}</span></p>
     <p><span class="mb_1">Email</span><span>{{vm.user.email}}</span></p>
@@ -7,11 +8,12 @@
     <p><span class="mb_1">User id</span><span>{{vm.user.id}}</span></p>
     <p><span class="mb_1">Country</span><span>{{vm.user.country}}</span></p>
     <p><span class="mb_1">Emergency Counter</span><span>{{vm.user.emergency_count}}</span></p>
+
     <div class="list">
         <h3>Dentist</h3>
         <div ng-if="vm.user.dentists && vm.user.dentists.length" class="form-control pointer"
              ui-sref="app.dentist_detail({id: dentist.id})"
-             ng-repeat="dentist in vm.user.dentists">
+             ng-repeat="dentist in vm.user.dentists track by $index">
             <span>{{dentist.name + ' ' + dentist.lastname + ' ' + dentist.phone}}</span>
         </div>
         <div ng-if="!vm.user.dentists.length">
