@@ -4,23 +4,16 @@
         .controller('ClinicsCtrl', ClinicsCtrl);
 
     /* @ngInject */
-    function ClinicsCtrl(clinicsSvc) {
+    function ClinicsCtrl(clinics, clinic_countries) {
         var vm = this;
-        vm.getAmount = getAmount;
+        vm.clinics = clinics;
+        vm.clinic_countries = clinic_countries;
+        init();
 
-        getClinics();
-
-        function getClinics() {
-            clinicsSvc.getAllClinic().then(function (res) {
-                vm.clinics = res;
+        function init() {
+            if(vm.clinics){
                 vm.count_clinic = vm.clinics.length;
-            });
-        }
-
-        function getAmount() {
-            clinicsSvc.getAmountClinic().then(function (res) {
-                vm.clinic_countries = res;
-            });
+            }
         }
     }
 })();
