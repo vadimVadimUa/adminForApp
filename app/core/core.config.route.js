@@ -33,6 +33,7 @@
                             return res;
                         });
                     },
+                    /* @ngInject */
                     amount_dentist : function (dentistSvc) {
                         return dentistSvc.getAmountDentist().then(function (res) {
                             return res;
@@ -71,6 +72,7 @@
                             return res;
                         });
                     },
+                    /* @ngInject */
                     amount_patient : function (patientSvc) {
                         return patientSvc.getAmountPatient().then(function (res) {
                             return res;
@@ -107,6 +109,7 @@
                             return res;
                         });
                     },
+                    /* @ngInject */
                     clinic_countries : function (clinicsSvc) {
                         return clinicsSvc.getAmountClinic().then(function (res) {
                             return res;
