@@ -10,8 +10,7 @@
                 <th>Product id</th>
                 <th>Period</th>
             </tr>
-            <tr ui-sref="app.clinic_detail({id: vm.user.clinic.id})" class="pointer"
-                ng-repeat="purchase in vm.purchases track by $index ">
+            <tr ng-repeat="purchase in vm.purchases track by $index ">
                 <td>{{$index + 1}}</td>
                 <td>{{purchase.productId}}</td>
                 <td>{{purchase.period}}</td>

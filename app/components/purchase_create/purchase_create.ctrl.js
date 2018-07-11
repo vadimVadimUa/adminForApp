@@ -14,12 +14,12 @@
         };
 
         function validation() {
-            if(vm.model.productId === '' || vm.model.period === '' || vm.model.price === ''){
+            if(vm.model.productId === '' || vm.model.period === ''){
                 toastr.error(messagesSvc.error.emptyField)
             } else if(vm.model.period === 0){
                 toastr.error(messagesSvc.error.invalidPeriod)
             }else{
-                return true
+                return true;
             }
         }
 
