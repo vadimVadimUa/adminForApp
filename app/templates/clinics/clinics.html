@@ -9,7 +9,7 @@
             </div>
             <div class="list">
                 <div ui-sref="app.clinic_detail({id: clinic.id})" class="form-control pointer"
-                     ng-repeat="clinic in vm.clinics | filter : name">
+                     ng-repeat="clinic in vm.clinics | filter : name track by $index">
                     <span>{{clinic.name + ' ' + clinic.phone}}</span>
                     <p>{{clinic.address}}</p>
                 </div>
