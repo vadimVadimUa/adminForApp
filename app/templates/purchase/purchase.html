@@ -3,9 +3,19 @@
         <h1>Purchase  <button ng-click="vm.newPurchase()" type="button" class="btn btn-primary">New</button></h1>
 
     </div>
-    <div class="list">
-        <div class="form-control" ng-repeat="purchase in vm.purchases track by $index ">
-            {{'Product id: ' + purchase.productId + ' ' +'Period: ' + purchase.period + ' ' + 'Price: ' + purchase.price}}
-        </div>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <tr>
+                <th>№</th>
+                <th>Product id</th>
+                <th>Period</th>
+            </tr>
+            <tr ui-sref="app.clinic_detail({id: vm.user.clinic.id})" class="pointer"
+                ng-repeat="purchase in vm.purchases track by $index ">
+                <td>{{$index + 1}}</td>
+                <td>{{purchase.productId}}</td>
+                <td>{{purchase.period}}</td>
+            </tr>
+        </table>
     </div>
 </div>

@@ -6,11 +6,28 @@
         </div>
     </div>
     <div class="list">
-        <div class="form-block pointer" ng-repeat="dentist in vm.dentists | filter : name track by $index ">
-            <span class="form-control" ui-sref="app.dentist_detail({id: dentist.id})">
-                {{dentist.name + ' ' + dentist.lastname + ' ' + dentist.email + ' ' + dentist.phone}}
-            </span>
-            <button class="btn btn-danger" ng-click="vm.deleteUser(dentist)">Delete</button>
+        <div class="form-block">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>№</th>
+                        <th>Name</th>
+                        <th>Lastname</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th></th>
+                    </tr>
+                    <tr ui-sref="app.dentist_detail({id: dentist.id})" class="pointer"
+                        ng-repeat="dentist in vm.dentists | filter : name track by $index">
+                        <td>{{$index + 1}}</td>
+                        <td>{{dentist.name}}</td>
+                        <td>{{dentist.lastname}}</td>
+                        <td>{{dentist.phone}}</td>
+                        <td>{{dentist.email}}</td>
+                        <td class="btn-td"><button class="btn btn-danger" ng-click="vm.deleteUser(dentist);  $event.stopPropagation()">Delete</button></td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 
