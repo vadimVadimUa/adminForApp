@@ -144,11 +144,26 @@ a:hover {
   font-size: 18px;
   font-weight: bold;
 }
-.mb_1{
-  font-size: 18px;
-  padding-right: 10px;
-  text-decoration-line: underline;
-}
 .pointer{
   cursor: pointer;
+}
+.table-responsive{
+  width: 100%;
+  .table{
+    th, td{
+      text-align: center;
+    }
+    .btn-td{
+      padding: 0;
+    }
+  }
+  .detail{
+    td{
+      text-align: left;
+    }
+    td:first-child {
+      width: 200px;
+      font-weight: bold;
+    }
+  }
 }

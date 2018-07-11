@@ -1,27 +1,82 @@
 <div class="dentist-detail default-container">
     <div class="default-header"> <h2>Dentist detail</h2></div>
-    <p><span class="mb_1">Name</span><span>{{vm.user.name}}</span></p>
-    <p><span class="mb_1">Last name</span><span>{{vm.user.lastname}}</span></p>
-    <p><span class="mb_1">Email</span><span>{{vm.user.email}}</span></p>
-    <p><span class="mb_1">Phone</span><span>{{vm.user.phone}}</span></p>
-    <p><span class="mb_1">User id</span><span>{{vm.user.id}}</span></p>
-    <p><span class="mb_1">Country</span><span>{{vm.user.country}}</span></p>
-    <p><span class="mb_1">Emergency patient</span><span>{{vm.user.emergency_count}}</span></p>
-    <p><span class="mb_1">Home patient</span><span>{{vm.user.owner_patient}}</span></p>
+    <div class="table-responsive">
+        <table class="table table-bordered detail">
+            <tr>
+                <td>Name</td>
+                <td>{{vm.user.name}}</td>
+            </tr>
+            <tr>
+                <td>Last name</td>
+                <td>{{vm.user.lastname}}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{vm.user.email}}</td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td>{{vm.user.phone}}</td>
+            </tr>
+            <tr>
+                <td>User id</td>
+                <td>{{vm.user.id}}</td>
+            </tr>
+            <tr>
+                <td>Country</td>
+                <td>{{vm.user.country}}</td>
+            </tr>
+            <tr>
+                <td>Emergency Counter</td>
+                <td>{{vm.user.emergency_count}}</td>
+            </tr>
+            <tr>
+                <td>Home patient</td>
+                <td>{{vm.user.owner_patient}}</td>
+            </tr>
+        </table>
+    </div>
     <h3>Clinic</h3>
-    <!--<p><span class="mb_1">Name</span><span>{{vm.user.clinic.name}}</span></p>-->
-    <!--<p><span class="mb_1">Address</span><span>{{vm.user.clinic.address}}</span></p>-->
-    <!--<p><span class="mb_1">Phone</span><span>{{vm.user.clinic.phone}}</span></p>-->
-    <!--<p><span class="mb_1">Clinic Country</span><span>{{vm.user.country}}</span></p>-->
-    <div  class="form-control pointer" ui-sref="app.clinic_detail({id: vm.user.clinic.id})">
-        <span>{{vm.user.clinic.name + ' ' + vm.user.clinic.phone}}</span>
-        <p>{{vm.user.clinic.address}}</p>
+    <div  class="form-block">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <th>№</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                </tr>
+                <tr ui-sref="app.clinic_detail({id: vm.user.clinic.id})" class="pointer">
+                    <td>{{$index + 1}}</td>
+                    <td>{{vm.user.clinic.name}}</td>
+                    <td>{{vm.user.clinic.phone}}</td>
+                    <td>{{vm.user.clinic.address}}</td>
+                </tr>
+            </table>
+        </div>
     </div>
     <div class="list">
         <h3>Patients</h3>
-        <div ng-if="vm.user.patients && vm.user.patients.length" class="form-control pointer"
-             ui-sref="app.patient_detail({id: patient.id})" ng-repeat="patient in vm.user.patients track by $index">
-            <span>{{patient.name + ' ' + patient.lastname + ' ' + patient.phone}}</span>
+        <div ng-if="vm.user.patients && vm.user.patients.length">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>№</th>
+                        <th>Name</th>
+                        <th>Lastname</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                    </tr>
+                    <tr ui-sref="app.patient_detail({id: patient.id})" class="pointer"
+                        ng-repeat="patient in vm.user.patients | filter : name track by $index">
+                        <td>{{$index + 1}}</td>
+                        <td>{{patient.name}}</td>
+                        <td>{{patient.lastname}}</td>
+                        <td>{{patient.phone}}</td>
+                        <td>{{patient.email}}</td>
+                    </tr>
+                </table>
+            </div>
         </div>
         <div ng-if="!vm.user.patients.length">
             <span>Does not have a patient</span>
