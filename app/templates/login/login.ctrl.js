@@ -7,10 +7,10 @@
     function LoginCtrl(authSvc, $state, toastr, userSvc) {
         var vm = this;
         vm.user = {
-            // email: 'admin1234@admin.admin',
-            // password: 'Admin1234!'
-            email: '',
-            password: ''
+            email: 'admin1234@admin.admin',
+            password: 'Admin1234!'
+            // email: '',
+            // password: ''
         };
         vm.login = login;
 

@@ -4,17 +4,16 @@
         .controller('PurchaseCtrl', PurchaseCtrl);
 
     /* @ngInject */
-    function PurchaseCtrl(modalSvc, purchaseSvc,toastr) {
+    function PurchaseCtrl(modalSvc, purchaseSvc, toastr, $state, purchases) {
         var vm = this;
+        vm.purchases = purchases;
         vm.newPurchase = newPurchase;
-
-        getPurchases();
 
         function newPurchase() {
             modalSvc.purchaseCreate().result.then(function(res){
                 purchaseSvc.createPurchasePlan(res).then(function (data) {
                     if(data.success){
-                        getPurchases();
+                        $state.reload();
                         toastr.success(data.message);
                     } else {
                         toastr.error(data.message);
@@ -22,12 +21,6 @@
                 })
             },function(){
                 return
-            });
-        }
-
-        function getPurchases() {
-            purchaseSvc.getPurchase().then(function (data) {
-                vm.purchases = data;
             });
         }
     }

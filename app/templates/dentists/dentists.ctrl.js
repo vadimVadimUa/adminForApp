@@ -4,33 +4,12 @@
         .controller('DentistsCtrl', DentistsCtrl);
 
     /* @ngInject */
-    function DentistsCtrl(modalSvc, dentistSvc, userSvc, toastr, $state) {
+    function DentistsCtrl(modalSvc, dentistSvc, userSvc, toastr, dentists, amount_dentist, $state) {
         var vm = this;
         var user_ids = [];
         vm.deleteUser = deleteUser;
-        vm.goDentist = goDentist;
-
-        init();
-        function init() {
-            getDentists();
-            getAmount();
-        }
-
-        function goDentist() {
-            $state.go()
-        }
-
-        function getDentists() {
-            dentistSvc.getAllDentist().then(function (res) {
-                vm.dentists = res;
-            });
-        }
-
-        function getAmount() {
-            dentistSvc.getAmountDentist().then(function (res) {
-                vm.amount_dentist = res;
-            });
-        }
+        vm.dentists = dentists;
+        vm.amount_dentist = amount_dentist;
 
         function deleteUser(user){
             user_ids.push(user.id);
@@ -40,8 +19,8 @@
             modalSvc.confirmDelete().result.then(function(){
                 userSvc.removeUser(user_id).then(function (data) {
                     if(data.success){
+                        $state.reload();
                         toastr.success(data.message);
-                        init();
                     } else {
                         toastr.error(data.message);
                     }

@@ -4,22 +4,16 @@
         .controller('SpecCtrl', SpecCtrl);
 
     /* @ngInject */
-    function SpecCtrl(specSvc, modalSvc, toastr) {
+    function SpecCtrl(specSvc, modalSvc, toastr, $state, specialities) {
         var vm = this;
+        vm.specialities = specialities;
         vm.newSpecialty = newSpecialty;
         vm.update = update;
-        getSpec();
-
-        function getSpec() {
-            specSvc.getAllSpec().then(function (res) {
-                vm.specialities = res;
-            });
-        }
 
         function update(spec) {
             specSvc.updateSpecialty(spec).then(function (data) {
                 if(data.success){
-                    getSpec();
+                    $state.reload();
                     toastr.success(data.message);
                 } else {
                     toastr.error(data.message);
@@ -31,7 +25,7 @@
             modalSvc.specCreateModal().result.then(function(res){
                 specSvc.createSpec(res).then(function (data) {
                     if(data.success){
-                        getSpec();
+                        $state.reload();
                         toastr.success(data.message);
                     } else {
                         toastr.error(data.message);
