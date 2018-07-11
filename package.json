@@ -55,7 +55,13 @@
     "css": [
       "./app/content/css/*.css"
     ],
-    "fonts": [],
+    "fonts": [
+      "./app/bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot",
+      "./app/bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg",
+      "./app/bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf",
+      "./app/bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff",
+      "./app/bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff2"
+    ],
     "images": [
       "./app/content/images/**/*",
       "./app/content/img/**/*"

@@ -38,7 +38,6 @@
                 }
             }
 
-
             function isLogined() {
                 if (userSvc.getToken()) {
                     return true;
