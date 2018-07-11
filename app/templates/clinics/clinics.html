@@ -22,10 +22,16 @@
                         <td>{{clinic.phone}}</td>
                         <td>{{clinic.address}}</td>
                     </tr>
+                    <tr ng-if="vm.clinics.length === 0">
+                        List is empty
+                    </tr>
                 </table>
             </div>
         </uib-tab>
         <uib-tab heading="Statistic" classes="btn-sm" ng-click="vm.getAmount()">
+            <div class="default-header">
+                <h1>Statistic</h1>
+            </div>
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <tr>
