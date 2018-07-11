@@ -17,6 +17,7 @@
                         <th>Email</th>
                         <th></th>
                     </tr>
+                    <tbody>
                     <tr ui-sref="app.dentist_detail({id: dentist.id})" class="pointer"
                         ng-repeat="dentist in vm.dentists | filter : name track by $index">
                         <td>{{$index + 1}}</td>
@@ -24,8 +25,16 @@
                         <td>{{dentist.lastname}}</td>
                         <td>{{dentist.phone}}</td>
                         <td>{{dentist.email}}</td>
-                        <td class="btn-td"><button class="btn btn-danger" ng-click="vm.deleteUser(dentist);  $event.stopPropagation()">Delete</button></td>
+                        <td class="btn-td">
+                            <button class="btn btn-danger" ng-click="vm.deleteUser(dentist);  $event.stopPropagation()">
+                                Delete
+                            </button>
+                        </td>
                     </tr>
+                    <tr ng-if="(!vm.dentists || !vm.dentists.length || (name && name.length && !(vm.dentists | filter : name).length))">
+                        <td colspan="6" class="text-center">List is empty</td>
+                    </tr>
+                    </tbody>
                 </table>
             </div>
         </div>

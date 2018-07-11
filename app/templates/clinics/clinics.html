@@ -15,6 +15,7 @@
                         <th>Phone</th>
                         <th>Address</th>
                     </tr>
+                    <tbody>
                     <tr ui-sref="app.clinic_detail({id: clinic.id})" class="pointer"
                         ng-repeat="clinic in vm.clinics | filter : name track by $index ">
                         <td>{{$index + 1}}</td>
@@ -22,15 +23,16 @@
                         <td>{{clinic.phone}}</td>
                         <td>{{clinic.address}}</td>
                     </tr>
-                    <tr ng-if="vm.clinics.length === 0">
-                        List is empty
+                    <tr ng-if="(!vm.clinics || !vm.clinics.length || (name && name.length && !(vm.clinics | filter : name).length))">
+                        <td colspan="4" class="text-center">List is empty</td>
                     </tr>
+                    </tbody>
                 </table>
             </div>
         </uib-tab>
         <uib-tab heading="Statistic" classes="btn-sm" ng-click="vm.getAmount()">
             <div class="default-header">
-                <h1>Statistic</h1>
+                <h1>Count clinic by country</h1>
             </div>
             <div class="table-responsive">
                 <table class="table table-bordered">
