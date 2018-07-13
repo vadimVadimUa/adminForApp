@@ -113,8 +113,7 @@ gulp.task('watch', function () {
 gulp.task('fonts', function () {
     var dest = pkg.paths.build + 'content/fonts';
     log('Copying fonts');
-    return gulp
-        .src(pkg.paths.fonts)
+    return gulp.src(pkg.paths.fonts)
         .pipe(gulp.dest(dest));
 });
 

@@ -16,7 +16,9 @@
             </tr>
             <tr>
                 <td>Address</td>
-                <td>{{vm.clinic.address}}</td>
+                <td>{{vm.clinic.address}}
+                    <a href="https://www.google.com/maps/search/?api=1&query={{vm.clinic.latitude}},{{vm.clinic.longitude}}"  target="_blank">
+                    Navigate</a></td>
             </tr>
         </table>
     </div>
